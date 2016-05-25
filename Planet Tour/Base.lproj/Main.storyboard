@@ -23,7 +23,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlanetCell" id="70i-bT-mcS" customClass="PlanetCell" customModule="Planet_Tour" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="173" width="250" height="319"/>
+                                <rect key="frame" x="0.0" y="172.5" width="250" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="319"/>
@@ -95,6 +95,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.69607115185950419" green="0.69607115185950419" blue="0.69607115185950419" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="682" width="26.5" height="12"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEg-cH-vya">
                                 <rect key="frame" x="279" y="105" width="42" height="21"/>
@@ -158,10 +161,22 @@
                             <constraint firstItem="X5k-gS-JhK" firstAttribute="top" secondItem="ELH-Uo-oYS" secondAttribute="bottom" constant="8" id="kdx-mV-zTS"/>
                             <constraint firstItem="Apw-xG-Lxb" firstAttribute="top" secondItem="bEg-cH-vya" secondAttribute="bottom" constant="-32" id="ktT-eI-j6j"/>
                             <constraint firstItem="Apw-xG-Lxb" firstAttribute="width" secondItem="02p-40-r0R" secondAttribute="width" id="q5S-pm-4ur"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="r8t-gJ-8cp" secondAttribute="bottom" id="qYW-DZ-lZm"/>
                             <constraint firstItem="4zI-PY-vH8" firstAttribute="top" secondItem="3fg-G9-s3A" secondAttribute="bottom" constant="8" id="qbd-6x-sZn"/>
                             <constraint firstItem="ELH-Uo-oYS" firstAttribute="leading" secondItem="WtT-PU-9Zl" secondAttribute="leading" id="tjb-bM-yqn"/>
                             <constraint firstItem="X5k-gS-JhK" firstAttribute="leading" secondItem="ELH-Uo-oYS" secondAttribute="leading" id="uES-rP-c64"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="qYW-DZ-lZm"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="dzs-0s-uEH"/>
+                                <include reference="qYW-DZ-lZm"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="funFactLabel" destination="AIY-fm-9nf" id="6aj-Z7-gDC"/>
