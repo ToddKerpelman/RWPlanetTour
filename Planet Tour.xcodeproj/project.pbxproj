@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		496480671CF6295600AB23CD /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 496480661CF6295600AB23CD /* Jupiter.jpg */; };
 		49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F201CF3C4320064A124 /* AppDelegate.swift */; };
 		49923F261CF3C4320064A124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
 		49923F281CF3C4320064A124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49923F271CF3C4320064A124 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		496480661CF6295600AB23CD /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
 		49923F1D1CF3C4310064A124 /* Planet Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49923F201CF3C4320064A124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49923F251CF3C4320064A124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		49923F391CF49B970064A124 /* PlanetImages */ = {
 			isa = PBXGroup;
 			children = (
+				496480661CF6295600AB23CD /* Jupiter.jpg */,
 				49923F3A1CF49D460064A124 /* Earth.jpg */,
 				49923F3B1CF49D460064A124 /* Mars.jpg */,
 				49923F3C1CF49D460064A124 /* Mercury.jpg */,
@@ -179,6 +182,7 @@
 				49923F2B1CF3C4320064A124 /* LaunchScreen.storyboard in Resources */,
 				49923F431CF49D460064A124 /* Mars.jpg in Resources */,
 				49923F471CF49D460064A124 /* Saturn.jpg in Resources */,
+				496480671CF6295600AB23CD /* Jupiter.jpg in Resources */,
 				49923F481CF49D460064A124 /* Uranus.jpg in Resources */,
 				49923F461CF49D460064A124 /* Pluto.jpg in Resources */,
 				49923F441CF49D460064A124 /* Mercury.jpg in Resources */,
@@ -350,6 +354,7 @@
 				49923F311CF3C4320064A124 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
