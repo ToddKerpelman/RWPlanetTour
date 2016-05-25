@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		496480671CF6295600AB23CD /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 496480661CF6295600AB23CD /* Jupiter.jpg */; };
+		496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496480681CF62CB100AB23CD /* ContainerViewController.swift */; };
+		4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */; };
 		49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F201CF3C4320064A124 /* AppDelegate.swift */; };
 		49923F261CF3C4320064A124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
 		49923F281CF3C4320064A124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49923F271CF3C4320064A124 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		496480661CF6295600AB23CD /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
+		496480681CF62CB100AB23CD /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNewsletterViewController.swift; sourceTree = "<group>"; };
 		49923F1D1CF3C4310064A124 /* Planet Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49923F201CF3C4320064A124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49923F251CF3C4320064A124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				49923F321CF3C4C50064A124 /* PlanetsCollectionViewController.swift */,
 				49923F4A1CF4BECC0064A124 /* PlanetCell.swift */,
 				49923F241CF3C4320064A124 /* Main.storyboard */,
+				4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */,
+				496480681CF62CB100AB23CD /* ContainerViewController.swift */,
 				49923F4C1CF4E8710064A124 /* PlanetDetailViewController.swift */,
 				49923F271CF3C4320064A124 /* Assets.xcassets */,
 				49923F291CF3C4320064A124 /* LaunchScreen.storyboard */,
@@ -199,8 +205,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */,
 				49923F361CF3C4FD0064A124 /* Planet.swift in Sources */,
 				49923F4B1CF4BECC0064A124 /* PlanetCell.swift in Sources */,
+				496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */,
 				49923F331CF3C4C60064A124 /* PlanetsCollectionViewController.swift in Sources */,
 				49923F381CF3C6720064A124 /* SolarSystem.swift in Sources */,
 				49923F4D1CF4E8710064A124 /* PlanetDetailViewController.swift in Sources */,

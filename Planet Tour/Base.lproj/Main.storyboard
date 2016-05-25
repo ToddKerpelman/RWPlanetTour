@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1233" y="403"/>
         </scene>
-        <!--View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="oTt-LI-CYQ">
             <objects>
-                <viewController id="aU9-RF-ZPZ" sceneMemberID="viewController">
+                <viewController id="aU9-RF-ZPZ" customClass="ContainerViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N0c-Km-c6G"/>
                         <viewControllerLayoutGuide type="bottom" id="eXo-41-qkG"/>
@@ -91,6 +91,7 @@
                                         <rect key="frame" x="438" y="19" width="132" height="30"/>
                                         <state key="normal" title="Get our newsletter!"/>
                                         <connections>
+                                            <action selector="getNewsletterButtonWasPressed:" destination="aU9-RF-ZPZ" eventType="touchUpInside" id="no2-Eo-a9t"/>
                                             <segue destination="CWe-th-J5g" kind="show" id="8E7-u2-aBf"/>
                                         </connections>
                                     </button>
@@ -129,15 +130,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uBw-xx-GCS"/>
+                    <connections>
+                        <outlet property="bannerLabel" destination="9qh-bG-IhY" id="wiB-Oi-uBC"/>
+                        <outlet property="bannerView" destination="bpd-Jo-Z7O" id="xgi-Y2-lrd"/>
+                        <outlet property="getNewsletterButton" destination="Oyz-dw-7Eb" id="eYf-Va-wJS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dqe-oG-0in" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1233" y="-349"/>
         </scene>
-        <!--View Controller-->
+        <!--Get Newsletter View Controller-->
         <scene sceneID="tv8-dG-oNf">
             <objects>
-                <viewController id="CWe-th-J5g" sceneMemberID="viewController">
+                <viewController id="CWe-th-J5g" customClass="GetNewsletterViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a5Y-2U-qAX"/>
                         <viewControllerLayoutGuide type="bottom" id="tZy-OV-Vlr"/>
@@ -166,6 +172,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwe-qO-L6b">
                                 <rect key="frame" x="363" y="243" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonWasPressed:" destination="CWe-th-J5g" eventType="touchUpInside" id="qNJ-ca-BrO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks! Be on the lookout for your next issue!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="nkR-wl-kkC">
                                 <rect key="frame" x="126" y="247" width="349" height="21"/>
@@ -192,6 +201,12 @@
                             <constraint firstItem="nkR-wl-kkC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cUV-xz-Ckv" secondAttribute="leadingMargin" constant="10" id="vea-bD-aS6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="76M-YM-5rz" id="nMR-rI-IGU"/>
+                        <outlet property="instructionLabel" destination="Nd0-cp-pOY" id="fas-XH-1v0"/>
+                        <outlet property="submitButton" destination="zwe-qO-L6b" id="SoH-ek-3va"/>
+                        <outlet property="thankYouLabel" destination="nkR-wl-kkC" id="Ptp-zK-BJj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEq-UV-Rgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
