@@ -44,7 +44,7 @@ class SolarSystem {
         imageCredit: "NASA/JPL-Caltech"),
       Planet.init(name: "Neptune", yearInDays: 60182, massInEarths: 17.147,
         funFact: "Claims to be a vegetarian, but eats a cheeseburger at least once a month.",
-        imageName: "Uranus.jpg",
+        imageName: "Neptune.jpg",
         imageCredit: "NASA"),
       Planet.init(name: "Pluto", yearInDays: 90581, massInEarths: 0.002,
         funFact: "Ostracized by friends for spoiling Game of Thrones before they had a chance to watch.",

@@ -11,7 +11,5 @@ import UIKit
 class PlanetCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
-
-
 }
 
