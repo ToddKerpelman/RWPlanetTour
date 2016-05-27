@@ -24,12 +24,12 @@ import Foundation
 import UIKit
 
 struct AppConstants {
-  static let labelColor = UIColor.init(rgba: "#AA3399FF");
-  static let plantaryBackgroundColor = UIColor.init(rgba: "#330000FF")
-  static let subscribeBannerText = "Like Planet Tour?"
-  static let subscribeBannerButton = "Check out our newsletter!"
-  static let subscribeBannerBGColor = UIColor.init(rgba: "#99AA83FF")
+  static let labelColor = UIColor.init(rgba: "#FFFFFFFF");
+  static let plantaryBackgroundColor = UIColor.init(rgba: "#000000FF")
+  static let subscribeBannerText = "Liking Planet Tour?"
+  static let subscribeBannerButton = "Get our newsletter!"
+  static let subscribeBannerBGColor = UIColor.init(rgba: "#999999FF")
   static let subscribeVCText = "Want more astronomy facts? Sign up for our newsletter!"
-  static let subscribeVCButton = "Submit"
+  static let subscribeVCButton = "Subscribe"
   static let shouldWeIncludePluto = false
 }
