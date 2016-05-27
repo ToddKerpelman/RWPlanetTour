@@ -31,7 +31,13 @@ class GetNewsletterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    updateText()
     thankYouLabel.hidden = true
+  }
+
+  func updateText() {
+    instructionLabel.text = AppConstants.subscribeVCText
+    submitButton.setTitle(AppConstants.subscribeVCButton, forState: .Normal)
   }
 
   @IBAction func submitButtonWasPressed(sender: AnyObject) {
