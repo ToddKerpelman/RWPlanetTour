@@ -20,27 +20,16 @@
  * THE SOFTWARE.
  */
 
+import Foundation
 import UIKit
 
-class ContainerViewController: UIViewController {
-
-  @IBOutlet weak var bannerView: UIView!
-  @IBOutlet weak var bannerLabel: UILabel!
-  @IBOutlet weak var getNewsletterButton: UIButton!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    updateBanner()
-  }
-
-  func updateBanner() {
-    bannerView.backgroundColor = AppConstants.subscribeBannerBGColor
-    bannerLabel.text = AppConstants.subscribeBannerText
-    getNewsletterButton.setTitle(AppConstants.subscribeBannerButton, forState: .Normal)
-  }
-
-  @IBAction func getNewsletterButtonWasPressed(sender: AnyObject) {
-    // No-op right now.
-  }
-
+struct AppConstants {
+  static let labelColor = UIColor.init(rgba: "#AA3399FF");
+  static let plantaryBackgroundColor = UIColor.init(rgba: "#330000FF")
+  static let subscribeBannerText = "Like Planet Tour?"
+  static let subscribeBannerButton = "Check out our newsletter!"
+  static let subscribeBannerBGColor = UIColor.init(rgba: "#99AA83FF")
+  static let subscribeVCText = "Want more astronomy facts? Sign up for our newsletter!"
+  static let subscribeVCButton = "Submit"
+  static let shouldWeIncludePluto = false
 }
