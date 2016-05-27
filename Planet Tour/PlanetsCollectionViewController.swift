@@ -27,6 +27,12 @@ private let sectionInsets = UIEdgeInsets(top: 30, left: 20, bottom: 10, right: 2
 
 class PlanetsCollectionViewController: UICollectionViewController {
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print("Hello from planet collection vc!")
+    self.collectionView?.backgroundColor = AppConstants.plantaryBackgroundColor
+  }
+
   func planetForIndexPath(indexPath: NSIndexPath) -> Planet {
     return SolarSystem.sharedInstance.planetAtNumber(indexPath.row);
   }
@@ -46,7 +52,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
     let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
     cell.imageView.image = currentPlanet.image
     cell.nameLabel.text = currentPlanet.name
-    cell.backgroundColor = UIColor.blackColor()
+    cell.nameLabel.textColor = AppConstants.labelColor
+    cell.backgroundColor = AppConstants.plantaryBackgroundColor
     return cell
   }
 
