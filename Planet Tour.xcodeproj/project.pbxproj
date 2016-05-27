@@ -76,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				49C83E751CF8B41C00B80E52 /* ViewControllers */,
+				49C83E761CF8C00200B80E52 /* Views */,
 				49C83E6C1CF899FD00B80E52 /* Utilities */,
 				49923F341CF3C4DC0064A124 /* Models */,
 				49923F201CF3C4320064A124 /* AppDelegate.swift */,
@@ -112,10 +113,17 @@
 				49923F321CF3C4C50064A124 /* PlanetsCollectionViewController.swift */,
 				4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */,
 				496480681CF62CB100AB23CD /* ContainerViewController.swift */,
-				49923F4A1CF4BECC0064A124 /* PlanetCell.swift */,
 				49923F4C1CF4E8710064A124 /* PlanetDetailViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		49C83E761CF8C00200B80E52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49923F4A1CF4BECC0064A124 /* PlanetCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
