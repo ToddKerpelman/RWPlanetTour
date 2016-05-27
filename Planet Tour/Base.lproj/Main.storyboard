@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="565" width="600" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-dw-7Eb">
-                                        <rect key="frame" x="438" y="3" width="132" height="30"/>
+                                        <rect key="frame" x="460" y="3" width="132" height="30"/>
                                         <state key="normal" title="Get our newsletter!"/>
                                         <connections>
                                             <action selector="getNewsletterButtonWasPressed:" destination="aU9-RF-ZPZ" eventType="touchUpInside" id="no2-Eo-a9t"/>
@@ -105,7 +105,7 @@
                                 <color key="backgroundColor" red="0.65414702004454228" green="0.63886370496499512" blue="0.66398179235537191" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="9qh-bG-IhY" firstAttribute="leading" secondItem="bpd-Jo-Z7O" secondAttribute="leading" constant="8" id="8fu-WG-luj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Oyz-dw-7Eb" secondAttribute="trailing" constant="30" id="YC5-gY-uQG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oyz-dw-7Eb" secondAttribute="trailing" constant="8" id="YC5-gY-uQG"/>
                                     <constraint firstItem="9qh-bG-IhY" firstAttribute="centerY" secondItem="bpd-Jo-Z7O" secondAttribute="centerY" id="fQf-No-sci"/>
                                     <constraint firstAttribute="height" constant="35" id="ofz-Jw-ZFT"/>
                                     <constraint firstItem="Oyz-dw-7Eb" firstAttribute="centerY" secondItem="bpd-Jo-Z7O" secondAttribute="centerY" id="s8Z-g8-mTx"/>
@@ -237,7 +237,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="4" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-gJ-8cp">
-                                <rect key="frame" x="0.0" y="658" width="600" height="12"/>
+                                <rect key="frame" x="4" y="658" width="600" height="12"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.69607115185950419" green="0.69607115185950419" blue="0.69607115185950419" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,7 +291,7 @@
                             <constraint firstItem="X5k-gS-JhK" firstAttribute="leading" secondItem="02p-40-r0R" secondAttribute="leadingMargin" constant="9" id="1oa-jE-sga"/>
                             <constraint firstItem="ELH-Uo-oYS" firstAttribute="top" secondItem="WtT-PU-9Zl" secondAttribute="bottom" constant="8" id="36m-4O-a9k"/>
                             <constraint firstItem="Apw-xG-Lxb" firstAttribute="centerX" secondItem="02p-40-r0R" secondAttribute="centerX" id="ITp-Ji-Hex"/>
-                            <constraint firstItem="r8t-gJ-8cp" firstAttribute="leading" secondItem="Apw-xG-Lxb" secondAttribute="leading" id="KVL-Fn-ufR"/>
+                            <constraint firstItem="r8t-gJ-8cp" firstAttribute="leading" secondItem="Apw-xG-Lxb" secondAttribute="leading" constant="4" id="KVL-Fn-ufR"/>
                             <constraint firstItem="AIY-fm-9nf" firstAttribute="top" secondItem="X5k-gS-JhK" secondAttribute="top" id="PMb-uo-u3l"/>
                             <constraint firstItem="bEg-cH-vya" firstAttribute="top" secondItem="w3N-vO-V24" secondAttribute="bottom" constant="41" id="PVh-wr-LA6"/>
                             <constraint firstItem="Apw-xG-Lxb" firstAttribute="top" secondItem="w3N-vO-V24" secondAttribute="bottom" constant="30" id="Srj-pS-yZm"/>
