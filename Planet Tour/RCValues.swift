@@ -30,7 +30,7 @@ class RCValues {
   }
 
   func fetchCloudValues() {
-    // DON'T DO THIS IN PRODUCTION!
+    // Don't do this in production!
     let fetchDuration : NSTimeInterval = 0
     activateDebugMode()
     FIRRemoteConfig.remoteConfig().fetchWithExpirationDuration(fetchDuration) { (status, error) in
