@@ -34,7 +34,14 @@ class RCValues {
 
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
-      "labelColor" : "#FFFFFFFF"
+      valueKey.labelColor.rawValue: "#FFFFFFFF",
+      valueKey.planetaryBackgroundColor.rawValue: "#000000FF",
+      valueKey.subscribeBannerText.rawValue: "Liking Planet Tour?",
+      valueKey.subscribeBannerButton.rawValue: "Get our newsletter!",
+      valueKey.subscribeBannerBGColor.rawValue: "#999999FF",
+      valueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
+      valueKey.subscribeVCButton.rawValue: "Subscribe",
+      valueKey.shouldWeIncludePluto.rawValue: false
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
