@@ -52,7 +52,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
     let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
     cell.imageView.image = currentPlanet.image
     cell.nameLabel.text = currentPlanet.name
-    cell.nameLabel.textColor = AppConstants.labelColor
+    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey("label_color")
     cell.backgroundColor = AppConstants.plantaryBackgroundColor
     return cell
   }
