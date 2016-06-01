@@ -12,11 +12,14 @@ class WaitingViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-    dispatch_after(delayTime, dispatch_get_main_queue()) {
-      self.performSegueWithIdentifier("loadingDoneSegue", sender: self)
+    if RCValues.sharedInstance.fetchComplete {
+      startAppForReal()
     }
-    // Do any additional setup after loading the view.
+    RCValues.sharedInstance.loadingDoneCallback = startAppForReal
+  }
+
+  func startAppForReal() {
+    self.performSegueWithIdentifier("loadingDoneSegue", sender: self)
   }
 
 

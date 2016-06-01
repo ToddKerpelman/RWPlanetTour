@@ -12,6 +12,9 @@ import Firebase
 class RCValues {
   static let sharedInstance = RCValues()
 
+  var loadingDoneCallback: (() -> ())?
+  var fetchComplete: Bool = false
+
   private init() {
     loadDefaultValues()
     fetchCloudValues()
@@ -33,19 +36,23 @@ class RCValues {
     // Don't do this in production!
     let fetchDuration : NSTimeInterval = 0
     activateDebugMode()
-    FIRRemoteConfig.remoteConfig().fetchWithExpirationDuration(fetchDuration) { (status, error) in
-      guard error == nil else {
+    FIRRemoteConfig.remoteConfig().fetchWithExpirationDuration(fetchDuration) {  [weak self] (status, error) in
+       guard let strongSelf = self else { return }
+      if error != nil {
         print ("Uh-oh. Got an error fetching remote values \(error)")
-        return
+      } else {
+        print ("Retrieved values from the cloud!")
+        FIRRemoteConfig.remoteConfig().activateFetched()
       }
-      print ("Retrieved values from the cloud!")
-      FIRRemoteConfig.remoteConfig().activateFetched()
+      strongSelf.fetchComplete = true
+      strongSelf.loadingDoneCallback?()
     }
   }
 
   func colorForKey(key: String) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()["label_color"].stringValue ?? "#FFFFFFFF"
-    return UIColor(rgba: colorAsHexString)
+    let convertedColor = UIColor(rgba: colorAsHexString)
+    return convertedColor
   }
 
   
