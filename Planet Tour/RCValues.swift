@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
+
+
 class RCValues {
   static let sharedInstance = RCValues()
 
@@ -22,7 +24,7 @@ class RCValues {
 
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
-      "label_color" : "#FFFFFFFF"
+      "labelColor" : "#FFFFFFFF"
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
@@ -50,7 +52,7 @@ class RCValues {
   }
 
   func colorForKey(key: String) -> UIColor {
-    let colorAsHexString = FIRRemoteConfig.remoteConfig()["label_color"].stringValue ?? "#FFFFFFFF"
+    let colorAsHexString = FIRRemoteConfig.remoteConfig()[key].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor
   }
