@@ -9,6 +9,16 @@
 import Foundation
 import Firebase
 
+enum valueKey : String {
+  case labelColor
+  case planetaryBackgroundColor
+  case subscribeBannerText
+  case subscribeBannerButton
+  case subscribeBannerBGColor
+  case subscribeVCText
+  case subscribeVCButton
+  case shouldWeIncludePluto
+}
 
 
 class RCValues {
@@ -51,8 +61,8 @@ class RCValues {
     }
   }
 
-  func colorForKey(key: String) -> UIColor {
-    let colorAsHexString = FIRRemoteConfig.remoteConfig()[key].stringValue ?? "#FFFFFFFF"
+  func colorForKey(key: valueKey) -> UIColor {
+    let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor
   }

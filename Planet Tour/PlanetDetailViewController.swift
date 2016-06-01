@@ -47,7 +47,7 @@ class PlanetDetailViewController: UIViewController {
   func updateLabelColors() {
     let labelsToRecolor = [planetNameLabel, yearLengthLabel, massLabel, funFactLabel, yearTitle, massTitle, funFactTitle]
     for nextLabel:UILabel in labelsToRecolor {
-      nextLabel.textColor = RCValues.sharedInstance.colorForKey("labelColor")
+      nextLabel.textColor = RCValues.sharedInstance.colorForKey(valueKey.labelColor)
     }
   }
 
