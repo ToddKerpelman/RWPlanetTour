@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496480681CF62CB100AB23CD /* ContainerViewController.swift */; };
 		4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */; };
+<<<<<<< HEAD
 		497A4E271CFE54BB00D3DD40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 497A4E261CFE54BB00D3DD40 /* GoogleService-Info.plist */; };
 		497A4E291CFE559600D3DD40 /* RCValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A4E281CFE559600D3DD40 /* RCValues.swift */; };
+=======
 		497FDCC11CFE7A020016441E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FDCC01CFE7A020016441E /* WaitingViewController.swift */; };
+>>>>>>> master
 		49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F201CF3C4320064A124 /* AppDelegate.swift */; };
 		49923F261CF3C4320064A124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
 		49923F281CF3C4320064A124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49923F271CF3C4320064A124 /* Assets.xcassets */; };
@@ -31,9 +34,12 @@
 /* Begin PBXFileReference section */
 		496480681CF62CB100AB23CD /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNewsletterViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		497A4E261CFE54BB00D3DD40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		497FDCC01CFE7A020016441E /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		497A4E281CFE559600D3DD40 /* RCValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCValues.swift; sourceTree = "<group>"; };
+=======
+		497FDCC01CFE7A020016441E /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+>>>>>>> master
 		49923F1D1CF3C4310064A124 /* Planet Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49923F201CF3C4320064A124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49923F251CF3C4320064A124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };

@@ -29,9 +29,21 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("Hello from planet collection vc!")
     self.collectionView?.backgroundColor = AppConstants.plantaryBackgroundColor
   }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    removeWaitingViewController()
+  }
+
+  func removeWaitingViewController() {
+    guard let stackViewControllers = self.navigationController?.viewControllers else { return }
+    if stackViewControllers[0].isKindOfClass(WaitingViewController) {
+      self.navigationController!.viewControllers.removeAtIndex(0)
+    }
+  }
+
 
   func planetForIndexPath(indexPath: NSIndexPath) -> Planet {
     return SolarSystem.sharedInstance.planetAtNumber(indexPath.row);

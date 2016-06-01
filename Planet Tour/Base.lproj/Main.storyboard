@@ -72,6 +72,45 @@
             </objects>
             <point key="canvasLocation" x="1233" y="403"/>
         </scene>
+        <!--Waiting View Controller-->
+        <scene sceneID="GoD-Ur-qnY">
+            <objects>
+                <viewController storyboardIdentifier="Waiting View Controller" id="0qg-3P-oEj" customClass="WaitingViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MbZ-Zy-A8w"/>
+                        <viewControllerLayoutGuide type="bottom" id="qgN-UZ-QSY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xQH-Jf-lsy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-On-D6v">
+                                <rect key="frame" x="236" y="28" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FZ4-On-D6v" firstAttribute="centerX" secondItem="0z2-J1-gI2" secondAttribute="centerX" id="5Je-Qd-Nl7"/>
+                            <constraint firstItem="FZ4-On-D6v" firstAttribute="centerX" secondItem="xQH-Jf-lsy" secondAttribute="centerX" id="PvR-dH-bkP"/>
+                            <constraint firstItem="0z2-J1-gI2" firstAttribute="centerY" secondItem="xQH-Jf-lsy" secondAttribute="centerY" id="jn2-R6-201"/>
+                            <constraint firstItem="FZ4-On-D6v" firstAttribute="top" secondItem="MbZ-Zy-A8w" secondAttribute="bottom" constant="8" symbolic="YES" id="rrU-YO-AR9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="24q-rp-2zn"/>
+                    <connections>
+                        <segue destination="aU9-RF-ZPZ" kind="show" identifier="loadingDoneSegue" id="KaX-Ep-SRd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIL-D3-khS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1240" y="-1081"/>
+        </scene>
         <!--Planet Tour-->
         <scene sceneID="oTt-LI-CYQ">
             <objects>
@@ -138,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dqe-oG-0in" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="-349"/>
+            <point key="canvasLocation" x="1240" y="-333"/>
         </scene>
         <!--Get Newsletter View Controller-->
         <scene sceneID="tv8-dG-oNf">
@@ -357,7 +396,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aU9-RF-ZPZ" kind="relationship" relationship="rootViewController" id="iSo-Nv-bkj"/>
+                        <segue destination="aU9-RF-ZPZ" kind="relationship" relationship="rootViewController" id="GfQ-Tb-mfz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-8m-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -365,4 +404,7 @@
             <point key="canvasLocation" x="417" y="-349"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KaX-Ep-SRd"/>
+    </inferredMetricsTieBreakers>
 </document>
