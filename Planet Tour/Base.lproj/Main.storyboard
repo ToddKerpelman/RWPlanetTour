@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1233" y="403"/>
         </scene>
-        <!--View Controller-->
+        <!--Waiting View Controller-->
         <scene sceneID="GoD-Ur-qnY">
             <objects>
-                <viewController id="0qg-3P-oEj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Waiting View Controller" id="0qg-3P-oEj" customClass="WaitingViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MbZ-Zy-A8w"/>
                         <viewControllerLayoutGuide type="bottom" id="qgN-UZ-QSY"/>
@@ -90,7 +90,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
                                 <rect key="frame" x="282" y="281" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
@@ -102,6 +102,7 @@
                             <constraint firstItem="FZ4-On-D6v" firstAttribute="top" secondItem="MbZ-Zy-A8w" secondAttribute="bottom" constant="8" symbolic="YES" id="rrU-YO-AR9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="24q-rp-2zn"/>
                     <connections>
                         <segue destination="aU9-RF-ZPZ" kind="show" identifier="loadingDoneSegue" id="KaX-Ep-SRd"/>
                     </connections>
@@ -395,7 +396,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aU9-RF-ZPZ" kind="relationship" relationship="rootViewController" id="iSo-Nv-bkj"/>
+                        <segue destination="aU9-RF-ZPZ" kind="relationship" relationship="rootViewController" id="GfQ-Tb-mfz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-8m-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
