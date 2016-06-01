@@ -29,7 +29,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.collectionView?.backgroundColor = AppConstants.plantaryBackgroundColor
+    self.collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -64,8 +64,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
     let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
     cell.imageView.image = currentPlanet.image
     cell.nameLabel.text = currentPlanet.name
-    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(valueKey.labelColor)
-    cell.backgroundColor = AppConstants.plantaryBackgroundColor
+    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
+    cell.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
     return cell
   }
 

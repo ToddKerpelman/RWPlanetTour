@@ -34,9 +34,9 @@ class ContainerViewController: UIViewController {
   }
 
   func updateBanner() {
-    bannerView.backgroundColor = AppConstants.subscribeBannerBGColor
-    bannerLabel.text = AppConstants.subscribeBannerText
-    getNewsletterButton.setTitle(AppConstants.subscribeBannerButton, forState: .Normal)
+    bannerView.backgroundColor = RCValues.sharedInstance.colorForKey(.subscribeBannerBGColor)
+    bannerLabel.text = RCValues.sharedInstance.stringForKey(.subscribeBannerText)
+    getNewsletterButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeBannerButton), forState: .Normal)
   }
 
   @IBAction func getNewsletterButtonWasPressed(sender: AnyObject) {

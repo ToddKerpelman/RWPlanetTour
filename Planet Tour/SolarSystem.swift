@@ -61,7 +61,7 @@ class SolarSystem {
         imageName: "Neptune",
         imageCredit: "NASA"),
     ]
-    if AppConstants.shouldWeIncludePluto {
+    if RCValues.sharedInstance.boolForKey(.shouldWeIncludePluto) {
      let pluto = Planet.init(name: "Pluto", yearInDays: 90581, massInEarths: 0.002,
                   funFact: "Ostracized by friends for spoiling Game of Thrones before got to watch it.",
                   imageName: "Pluto",

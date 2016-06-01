@@ -68,6 +68,14 @@ class RCValues {
     }
   }
 
+  func boolForKey(key: valueKey) -> Bool {
+    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue ?? false
+  }
+
+  func stringForKey(key: valueKey) -> String {
+    return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
+  }
+
   func colorForKey(key: valueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
