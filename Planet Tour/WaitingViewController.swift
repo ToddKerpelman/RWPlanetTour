@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class WaitingViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class WaitingViewController: UIViewController {
   }
 
   func startAppForReal() {
+    FIRAnalytics.setUserPropertyString(RCValues.sharedInstance.stringForKey(.subscribeVCButton), forName: "subscribeButtonText")
     self.performSegueWithIdentifier("loadingDoneSegue", sender: self)
   }
 
