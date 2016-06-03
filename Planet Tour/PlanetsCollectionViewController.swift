@@ -29,7 +29,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
+    collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -38,9 +38,9 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
   func removeWaitingViewController() {
-    guard let stackViewControllers = self.navigationController?.viewControllers else { return }
+    guard let stackViewControllers = navigationController?.viewControllers else { return }
     if stackViewControllers[0].isKindOfClass(WaitingViewController) {
-      self.navigationController!.viewControllers.removeAtIndex(0)
+      navigationController!.viewControllers.removeAtIndex(0)
     }
   }
 
@@ -72,7 +72,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
   // MARK: UICollectionViewDelegate
 
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    self.performSegueWithIdentifier("planetDetailSegue", sender: self)
+    performSegueWithIdentifier("planetDetailSegue", sender: self)
   }
 
   // MARK: - Navigation
@@ -87,14 +87,14 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
     super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
-    self.collectionView?.collectionViewLayout.invalidateLayout()
+    collectionView?.collectionViewLayout.invalidateLayout()
   }
 
 }
 
 extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    let maxHeight = self.view.frame.height - sectionInsets.top - sectionInsets.bottom - 30
+    let maxHeight = view.frame.height - sectionInsets.top - sectionInsets.bottom - 30
     let idealCellSize = CGFloat(400)
     let cellSize = min(maxHeight, idealCellSize)
     return CGSize(width: cellSize, height: cellSize)
