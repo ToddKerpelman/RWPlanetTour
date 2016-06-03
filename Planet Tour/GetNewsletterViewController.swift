@@ -39,7 +39,8 @@ class GetNewsletterViewController: UIViewController {
 
   func updateText() {
     instructionLabel.text = RCValues.sharedInstance.stringForKey(.subscribeVCText)
-    submitButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeVCButton), forState: .Normal)
+    submitButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeVCButton),
+                          forState: .Normal)
   }
 
   @IBAction func submitButtonWasPressed(sender: AnyObject) {
