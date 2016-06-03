@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-enum valueKey : String {
+enum ValueKey: String {
   case labelColor
   case planetaryBackgroundColor
   case subscribeBannerText
@@ -32,16 +32,18 @@ class RCValues {
     fetchCloudValues()
   }
 
+  // MARK: - Initialization steps
+
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
-      valueKey.labelColor.rawValue: "#FFFFFFFF",
-      valueKey.planetaryBackgroundColor.rawValue: "#000000FF",
-      valueKey.subscribeBannerText.rawValue: "Liking Planet Tour?",
-      valueKey.subscribeBannerButton.rawValue: "Get our newsletter!",
-      valueKey.subscribeBannerBGColor.rawValue: "#999999FF",
-      valueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
-      valueKey.subscribeVCButton.rawValue: "Subscribe",
-      valueKey.shouldWeIncludePluto.rawValue: false
+      ValueKey.labelColor.rawValue: "#FFFFFFFF",
+      ValueKey.planetaryBackgroundColor.rawValue: "#000000FF",
+      ValueKey.subscribeBannerText.rawValue: "Liking Planet Tour?",
+      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!",
+      ValueKey.subscribeBannerBGColor.rawValue: "#999999FF",
+      ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
+      ValueKey.subscribeVCButton.rawValue: "Subscribe",
+      ValueKey.shouldWeIncludePluto.rawValue: false
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
@@ -68,21 +70,20 @@ class RCValues {
     }
   }
 
-  func boolForKey(key: valueKey) -> Bool {
+  // MARK: - Retrieving values
+
+  func boolForKey(key: ValueKey) -> Bool {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue ?? false
   }
 
-  func stringForKey(key: valueKey) -> String {
+  func stringForKey(key: ValueKey) -> String {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
   }
 
-  func colorForKey(key: valueKey) -> UIColor {
+  func colorForKey(key: ValueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor
   }
-
-  
-
 
 }
