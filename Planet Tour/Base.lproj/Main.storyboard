@@ -5,9 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Planet Tour-->
+        <!--Planets Collection View Controller-->
         <scene sceneID="VEZ-0C-mXd">
             <objects>
                 <collectionViewController id="6bv-LL-yH0" customClass="PlanetsCollectionViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +64,7 @@
                             <outlet property="delegate" destination="6bv-LL-yH0" id="yIM-J8-6gr"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Planet Tour" id="YCt-vP-aaH"/>
+                    <navigationItem key="navigationItem" id="YCt-vP-aaH"/>
                     <connections>
                         <segue destination="2m5-hX-hoD" kind="show" identifier="planetDetailSegue" id="f6B-IP-eha"/>
                     </connections>
@@ -85,36 +86,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-On-D6v">
-                                <rect key="frame" x="236" y="28" width="128" height="21"/>
+                                <rect key="frame" x="236" y="552" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mars" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-yu-DKs">
+                                <rect key="frame" x="105" y="147" width="390" height="390"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Spw-yu-DKs" secondAttribute="height" multiplier="1:1" id="JER-eT-Mcv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Tour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cat-JT-Jxq">
+                                <rect key="frame" x="218" y="72" width="164" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
+                                <rect key="frame" x="291" y="571" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FZ4-On-D6v" firstAttribute="centerX" secondItem="0z2-J1-gI2" secondAttribute="centerX" id="5Je-Qd-Nl7"/>
+                            <constraint firstItem="cat-JT-Jxq" firstAttribute="top" secondItem="MbZ-Zy-A8w" secondAttribute="bottom" constant="8" id="5Fw-Si-bwL"/>
+                            <constraint firstItem="0z2-J1-gI2" firstAttribute="centerX" secondItem="xQH-Jf-lsy" secondAttribute="centerX" id="LsL-u6-tgZ"/>
+                            <constraint firstItem="Spw-yu-DKs" firstAttribute="width" secondItem="xQH-Jf-lsy" secondAttribute="width" multiplier="0.65" id="Pjb-XS-GDU"/>
                             <constraint firstItem="FZ4-On-D6v" firstAttribute="centerX" secondItem="xQH-Jf-lsy" secondAttribute="centerX" id="PvR-dH-bkP"/>
-                            <constraint firstItem="0z2-J1-gI2" firstAttribute="centerY" secondItem="xQH-Jf-lsy" secondAttribute="centerY" id="jn2-R6-201"/>
-                            <constraint firstItem="FZ4-On-D6v" firstAttribute="top" secondItem="MbZ-Zy-A8w" secondAttribute="bottom" constant="8" symbolic="YES" id="rrU-YO-AR9"/>
+                            <constraint firstItem="Spw-yu-DKs" firstAttribute="top" secondItem="cat-JT-Jxq" secondAttribute="bottom" constant="35" id="QNP-52-PW8"/>
+                            <constraint firstItem="0z2-J1-gI2" firstAttribute="top" secondItem="FZ4-On-D6v" secondAttribute="bottom" constant="20" id="SH2-RT-m0V"/>
+                            <constraint firstItem="Spw-yu-DKs" firstAttribute="centerX" secondItem="xQH-Jf-lsy" secondAttribute="centerX" id="cVT-S7-V5F"/>
+                            <constraint firstItem="FZ4-On-D6v" firstAttribute="top" secondItem="Spw-yu-DKs" secondAttribute="bottom" constant="15" id="yFH-gZ-fnt"/>
+                            <constraint firstItem="cat-JT-Jxq" firstAttribute="centerX" secondItem="xQH-Jf-lsy" secondAttribute="centerX" id="zMK-Lm-N1b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="24q-rp-2zn"/>
                     <connections>
-                        <segue destination="aU9-RF-ZPZ" kind="show" identifier="loadingDoneSegue" id="KaX-Ep-SRd"/>
+                        <segue destination="aU9-RF-ZPZ" kind="custom" identifier="loadingDoneSegue" customClass="CrossfadeSegue" customModule="Planet_Tour" customModuleProvider="target" id="KaX-Ep-SRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIL-D3-khS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240" y="-1081"/>
         </scene>
-        <!--Planet Tour-->
+        <!--Planet Container-->
         <scene sceneID="oTt-LI-CYQ">
             <objects>
-                <viewController id="aU9-RF-ZPZ" customClass="ContainerViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Planet Container" id="aU9-RF-ZPZ" userLabel="Planet Container" customClass="ContainerViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N0c-Km-c6G"/>
                         <viewControllerLayoutGuide type="bottom" id="eXo-41-qkG"/>
@@ -396,7 +414,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0qg-3P-oEj" kind="relationship" relationship="rootViewController" id="3lh-kg-gdH"/>
+                        <segue destination="aU9-RF-ZPZ" kind="relationship" relationship="rootViewController" id="DrK-2k-Pvy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-8m-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,4 +422,10 @@
             <point key="canvasLocation" x="417" y="-349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mars" width="300" height="300"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DrK-2k-Pvy"/>
+    </inferredMetricsTieBreakers>
 </document>

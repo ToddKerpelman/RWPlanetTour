@@ -32,8 +32,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
     self.collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
     removeWaitingViewController()
   }
 
