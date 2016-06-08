@@ -18,6 +18,7 @@ enum ValueKey: String {
   case subscribeVCText
   case subscribeVCButton
   case shouldWeIncludePluto
+  case experimentGroup
 }
 
 
@@ -43,7 +44,8 @@ class RCValues {
       ValueKey.subscribeBannerBGColor.rawValue: "#999999FF",
       ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
       ValueKey.subscribeVCButton.rawValue: "Subscribe",
-      ValueKey.shouldWeIncludePluto.rawValue: false
+      ValueKey.shouldWeIncludePluto.rawValue: false,
+      ValueKey.experimentGroup.rawValue: "default"
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }

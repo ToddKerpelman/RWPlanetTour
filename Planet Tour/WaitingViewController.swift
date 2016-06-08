@@ -34,8 +34,8 @@ class WaitingViewController: UIViewController {
   }
 
   func startAppForReal() {
-    FIRAnalytics.setUserPropertyString(RCValues.sharedInstance.stringForKey(.subscribeVCButton),
-                                       forName: "subscribeButtonText")
+    FIRAnalytics.setUserPropertyString(RCValues.sharedInstance.stringForKey(.experimentGroup),
+                                       forName: "experimentGroup")
     performSegueWithIdentifier("loadingDoneSegue", sender: self)
   }
 
