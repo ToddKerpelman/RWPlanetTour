@@ -30,16 +30,21 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    anotherImage = UIImageView(image: UIImage(named: "Mercury"))
-    anotherImage.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.height)
+    collectionView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+  }
+
+  func addFancyBackground() {
+    guard let galaxyImage = UIImage(named: "GalaxyBackground") else { return }
+    anotherImage = UIImageView(image: galaxyImage)
+    let scaleFactor = view.bounds.height / galaxyImage.size.height
+    anotherImage.frame = CGRect(x: 0, y: 0, width: galaxyImage.size.width * scaleFactor, height: galaxyImage.size.height * scaleFactor)
     self.view.insertSubview(anotherImage, atIndex: 0)
-    collectionView?.backgroundColor = UIColor(white: 0, alpha: 0);
-//    collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     removeWaitingViewController()
+    addFancyBackground()
   }
 
   func removeWaitingViewController() {
@@ -97,11 +102,12 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
 }
 
+// Parallax scrolling!
 extension PlanetsCollectionViewController {
 
   override func scrollViewDidScroll(scrollView: UIScrollView) {
     let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
-    let backgroundTravel:CGFloat = 700 -  self.view.frame.width
+    let backgroundTravel:CGFloat = self.anotherImage.frame.width -  self.view.frame.width
     anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
 
   }

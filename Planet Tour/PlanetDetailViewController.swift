@@ -41,7 +41,6 @@ class PlanetDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     updateLabelColors()
-    updateBackgroundColor()
     updateLookForPlanet()
     if let planet = self.planet {
       FIRAnalytics.logEventWithName("visited_planet_details", parameters: ["planet": planet.name])
@@ -53,10 +52,6 @@ class PlanetDetailViewController: UIViewController {
     for nextLabel:UILabel in labelsToRecolor {
       nextLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
     }
-  }
-
-  func updateBackgroundColor() {
-    view.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
   func updateLookForPlanet() {
