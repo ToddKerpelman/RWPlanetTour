@@ -15,7 +15,6 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0em-Xy-n8G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="610"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.041096332644628086" green="0.041096332644628086" blue="0.041096332644628086" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pbu-79-LSu">
                             <size key="itemSize" width="250" height="319"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

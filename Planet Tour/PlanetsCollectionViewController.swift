@@ -26,10 +26,15 @@ private let reuseIdentifier = "PlanetCell"
 private let sectionInsets = UIEdgeInsets(top: 30, left: 20, bottom: 10, right: 20)
 
 class PlanetsCollectionViewController: UICollectionViewController {
+  var anotherImage: UIImageView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
+    anotherImage = UIImageView(image: UIImage(named: "Mercury"))
+    anotherImage.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.height)
+    self.view.insertSubview(anotherImage, atIndex: 0)
+    collectionView?.backgroundColor = UIColor(white: 0, alpha: 0);
+//    collectionView?.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -91,6 +96,18 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
 }
+
+extension PlanetsCollectionViewController {
+
+  override func scrollViewDidScroll(scrollView: UIScrollView) {
+    let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
+    let backgroundTravel:CGFloat = 700 -  self.view.frame.width
+    anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
+
+  }
+
+}
+
 
 extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
