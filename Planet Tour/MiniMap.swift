@@ -47,7 +47,6 @@ class MiniMap: UIView {
 
   func createOverviewImage() {
     overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImageWithCapInsets(UIEdgeInsets(top: 5.0,left: 5.0,bottom: 5.0,right: 5.0)))
-//    overviewImage = MiniMapOverview(frame: CGRect(x: 0, y: 0, width: self.bounds.height, height: self.bounds.height))
     addSubview(overviewImage)
     showPlanet(0)
   }
@@ -68,12 +67,5 @@ class MiniMap: UIView {
 
   }
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
