@@ -35,7 +35,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ev-v4R">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ev-v4R">
                                             <rect key="frame" x="8" y="8" width="234" height="234"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UX7-Ev-v4R" secondAttribute="height" multiplier="1:1" priority="750" id="spc-si-OEy"/>
@@ -422,6 +422,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mars" width="300" height="300"/>
+        <image name="Mars" width="200" height="200"/>
     </resources>
 </document>

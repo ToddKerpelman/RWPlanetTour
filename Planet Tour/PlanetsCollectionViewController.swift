@@ -21,12 +21,14 @@
  */
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "PlanetCell"
 private let sectionInsets = UIEdgeInsets(top: 30, left: 20, bottom: 10, right: 20)
 
 class PlanetsCollectionViewController: UICollectionViewController {
   var anotherImage: UIImageView!
+  var systemMap: MiniMap!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,17 +36,29 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
   func addFancyBackground() {
+    if anotherImage != nil { return }
     guard let galaxyImage = UIImage(named: "GalaxyBackground") else { return }
     anotherImage = UIImageView(image: galaxyImage)
     let scaleFactor = view.bounds.height / galaxyImage.size.height
     anotherImage.frame = CGRect(x: 0, y: 0, width: galaxyImage.size.width * scaleFactor, height: galaxyImage.size.height * scaleFactor)
     self.view.insertSubview(anotherImage, atIndex: 0)
+
+    FIRAnalytics.logEventWithName(kFIREventPostScore, parameters: [kFIRParameterScore: 4200])
+  }
+
+  func addMiniMap() {
+    if systemMap != nil { return }
+
+    let miniMapFrame = CGRect(x: 40, y: view.bounds.height - 80, width: view.bounds.width - 80, height: 40)
+    systemMap = MiniMap(frame: miniMapFrame)
+    self.view.addSubview(systemMap)
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     removeWaitingViewController()
     addFancyBackground()
+    addMiniMap()
   }
 
   func removeWaitingViewController() {
@@ -72,7 +86,10 @@ class PlanetsCollectionViewController: UICollectionViewController {
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PlanetCell
     let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
-    cell.imageView.image = currentPlanet.image
+    let initialImage = currentPlanet.image
+    let scaleFactor = SolarSystem.sharedInstance.getScaleFactorForPlanet(indexPath.row)
+    let scaledImage = UIImage.init(CGImage: initialImage.CGImage!, scale: 1.0 / CGFloat(scaleFactor), orientation: initialImage.imageOrientation)
+    cell.imageView.image = scaledImage
     cell.nameLabel.text = currentPlanet.name
     cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
     cell.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
@@ -109,7 +126,7 @@ extension PlanetsCollectionViewController {
     let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
     let backgroundTravel:CGFloat = self.anotherImage.frame.width -  self.view.frame.width
     anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
-
+    systemMap.showPlanet(Int(round(pctThere * CGFloat(SolarSystem.sharedInstance.planetCount()))))
   }
 
 }

@@ -19,6 +19,7 @@ enum ValueKey: String {
   case subscribeVCButton
   case shouldWeIncludePluto
   case experimentGroup
+  case imageScaleFactor
 }
 
 
@@ -45,7 +46,8 @@ class RCValues {
       ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
       ValueKey.subscribeVCButton.rawValue: "Subscribe",
       ValueKey.shouldWeIncludePluto.rawValue: false,
-      ValueKey.experimentGroup.rawValue: "default"
+      ValueKey.experimentGroup.rawValue: "default",
+      ValueKey.imageScaleFactor.rawValue: 5.0
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
@@ -81,6 +83,15 @@ class RCValues {
   func stringForKey(key: ValueKey) -> String {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
   }
+
+  func doubleForKey(key: ValueKey) -> Double {
+    if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
+      return numberValue.doubleValue
+    } else {
+      return 0.0
+    }
+  }
+
 
   func colorForKey(key: ValueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
