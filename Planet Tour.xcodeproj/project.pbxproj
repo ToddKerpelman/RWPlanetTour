@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		495805B91D132ACA00E03D48 /* MiniMapOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495805B81D132ACA00E03D48 /* MiniMapOverview.swift */; };
 		495915E81D00F68300CDFD8B /* CrossfadeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */; };
 		496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496480681CF62CB100AB23CD /* ContainerViewController.swift */; };
 		4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		495805B81D132ACA00E03D48 /* MiniMapOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapOverview.swift; sourceTree = "<group>"; };
 		495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossfadeSegue.swift; sourceTree = "<group>"; };
 		496480681CF62CB100AB23CD /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNewsletterViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 			children = (
 				49923F4A1CF4BECC0064A124 /* PlanetCell.swift */,
 				499C8A271D122C0E00742186 /* MiniMap.swift */,
-				495805B81D132ACA00E03D48 /* MiniMapOverview.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 				49923F4B1CF4BECC0064A124 /* PlanetCell.swift in Sources */,
 				496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */,
 				49923F331CF3C4C60064A124 /* PlanetsCollectionViewController.swift in Sources */,
-				495805B91D132ACA00E03D48 /* MiniMapOverview.swift in Sources */,
 				49C83E6E1CF89A1F00B80E52 /* UIColorExtension.swift in Sources */,
 				49923F381CF3C6720064A124 /* SolarSystem.swift in Sources */,
 				49923F4D1CF4E8710064A124 /* PlanetDetailViewController.swift in Sources */,

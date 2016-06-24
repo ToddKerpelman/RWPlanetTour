@@ -83,16 +83,23 @@ class PlanetsCollectionViewController: UICollectionViewController {
     return SolarSystem.sharedInstance.planetCount()
   }
 
+
+  func getImageSizeForPlanetNum(planet: Int, withWidth: CGFloat) -> CGFloat {
+    let scaleFactor = SolarSystem.sharedInstance.getScaleFactorForPlanet(planet)
+    return withWidth * CGFloat(scaleFactor)
+
+  }
+
+
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PlanetCell
     let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
-    let initialImage = currentPlanet.image
-    let scaleFactor = SolarSystem.sharedInstance.getScaleFactorForPlanet(indexPath.row)
-    let scaledImage = UIImage.init(CGImage: initialImage.CGImage!, scale: 1.0 / CGFloat(scaleFactor), orientation: initialImage.imageOrientation)
-    cell.imageView.image = scaledImage
+    let planetImageSize = getImageSizeForPlanetNum(indexPath.row, withWidth: cell.bounds.width)
+    cell.imageView.image = currentPlanet.image
+    cell.imageWidth.constant = planetImageSize
+    cell.imageHeight.constant = planetImageSize
     cell.nameLabel.text = currentPlanet.name
     cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
-    cell.backgroundColor = RCValues.sharedInstance.colorForKey(.planetaryBackgroundColor)
     return cell
   }
 
@@ -133,11 +140,18 @@ extension PlanetsCollectionViewController {
 
 
 extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    let maxHeight = view.frame.height - sectionInsets.top - sectionInsets.bottom - 30
-    let idealCellSize = CGFloat(400)
+
+  func biggestSizeThatFits() -> CGFloat {
+    let maxHeight = view.frame.height - sectionInsets.top - sectionInsets.bottom - 150
+    let idealCellSize = CGFloat(380)
     let cellSize = min(maxHeight, idealCellSize)
-    return CGSize(width: cellSize, height: cellSize)
+    return cellSize
+  }
+
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    let cellHeight = biggestSizeThatFits()
+    let cellWidth = max(0.5, CGFloat(SolarSystem.sharedInstance.getScaleFactorForPlanet(indexPath.row))) * cellHeight
+    return CGSize(width: cellWidth, height: cellHeight)
   }
 
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

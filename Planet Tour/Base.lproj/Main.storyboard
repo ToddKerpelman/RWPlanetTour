@@ -30,30 +30,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-uB-bYK">
-                                            <rect key="frame" x="104" y="281" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="87" y="15" width="76.5" height="41"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                            <color key="textColor" red="0.0" green="0.51764705882352935" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ev-v4R">
-                                            <rect key="frame" x="8" y="8" width="234" height="234"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ev-v4R">
+                                            <rect key="frame" x="8" y="77" width="234" height="234"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="UX7-Ev-v4R" secondAttribute="height" multiplier="1:1" priority="750" id="spc-si-OEy"/>
+                                                <constraint firstAttribute="height" constant="234" id="4JI-86-pJQ"/>
+                                                <constraint firstAttribute="width" constant="234" id="7DJ-93-MQI"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="UX7-Ev-v4R" firstAttribute="top" secondItem="70i-bT-mcS" secondAttribute="topMargin" id="9ye-Xz-yr3"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="UX7-Ev-v4R" secondAttribute="trailing" id="PvO-GG-5EJ"/>
-                                    <constraint firstItem="UX7-Ev-v4R" firstAttribute="leading" secondItem="70i-bT-mcS" secondAttribute="leadingMargin" id="QeH-gH-nLY"/>
+                                    <constraint firstItem="UX7-Ev-v4R" firstAttribute="centerY" secondItem="70i-bT-mcS" secondAttribute="centerY" multiplier="1.15" id="76W-kD-724"/>
                                     <constraint firstItem="Kaq-uB-bYK" firstAttribute="centerX" secondItem="70i-bT-mcS" secondAttribute="centerX" id="RNd-ZA-vPS"/>
-                                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UX7-Ev-v4R" secondAttribute="bottom" constant="40" id="ax1-eE-yvg"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Kaq-uB-bYK" secondAttribute="bottom" constant="9" id="gXk-BK-bOd"/>
+                                    <constraint firstItem="Kaq-uB-bYK" firstAttribute="top" secondItem="70i-bT-mcS" secondAttribute="topMargin" constant="7" id="dDU-pv-4ZH"/>
+                                    <constraint firstItem="UX7-Ev-v4R" firstAttribute="centerX" secondItem="70i-bT-mcS" secondAttribute="centerX" id="pf4-KO-W6T"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="imageHeight" destination="4JI-86-pJQ" id="eTU-qe-Qga"/>
                                     <outlet property="imageView" destination="UX7-Ev-v4R" id="ry2-f4-U4u"/>
+                                    <outlet property="imageWidth" destination="7DJ-93-MQI" id="DjJ-9s-mug"/>
                                     <outlet property="nameLabel" destination="Kaq-uB-bYK" id="mA1-AF-Lfg"/>
                                 </connections>
                             </collectionViewCell>
@@ -81,28 +82,28 @@
                         <viewControllerLayoutGuide type="bottom" id="qgN-UZ-QSY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xQH-Jf-lsy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-On-D6v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Just a moment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-On-D6v">
                                 <rect key="frame" x="236" y="552" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mars" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-yu-DKs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Mars" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-yu-DKs">
                                 <rect key="frame" x="105" y="147" width="390" height="390"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Spw-yu-DKs" secondAttribute="height" multiplier="1:1" id="JER-eT-Mcv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Tour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cat-JT-Jxq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Planet Tour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cat-JT-Jxq">
                                 <rect key="frame" x="218" y="72" width="164" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-J1-gI2">
                                 <rect key="frame" x="290" y="593" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -407,9 +408,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ksm-iv-QfK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ka-7k-J5C">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6ka-7k-J5C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.32549019607843138" green="0.36862745098039218" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
