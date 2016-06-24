@@ -10,12 +10,24 @@ import UIKit
 
 class MiniMapOverview: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    self.backgroundColor = UIColor.clearColor()
+    
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
     override func drawRect(rect: CGRect) {
-        // Drawing code
+      // This won't be quite accurate, but let's run with it for now.
+      let context = UIGraphicsGetCurrentContext()
+      CGContextSetLineWidth(context, 4)
+      CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0)
+      CGContextStrokeRectWithWidth(context, self.bounds, 3.0)
+      super.drawRect(rect)
     }
-    */
 
 }
