@@ -29,10 +29,11 @@ class GetNewsletterViewController: UIViewController {
   @IBOutlet weak var thankYouLabel: UILabel!
   @IBOutlet weak var submitButton: UIButton!
   @IBOutlet weak var emailTextField: UITextField!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     updateText()
+    updateSubmitButton()
     thankYouLabel.hidden = true
     FIRAnalytics.logEventWithName("visited_newsletter_page", parameters: nil)
   }
@@ -41,6 +42,11 @@ class GetNewsletterViewController: UIViewController {
     instructionLabel.text = RCValues.sharedInstance.stringForKey(.subscribeVCText)
     submitButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeVCButton),
                           forState: .Normal)
+  }
+
+  func updateSubmitButton() {
+    submitButton.backgroundColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
+    submitButton.layer.cornerRadius = 5.0
   }
 
   @IBAction func submitButtonWasPressed(sender: AnyObject) {

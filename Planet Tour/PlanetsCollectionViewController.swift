@@ -24,7 +24,7 @@ import UIKit
 import Firebase
 
 private let reuseIdentifier = "PlanetCell"
-private let sectionInsets = UIEdgeInsets(top: 30, left: 20, bottom: 10, right: 20)
+private let sectionInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
 
 class PlanetsCollectionViewController: UICollectionViewController {
   var anotherImage: UIImageView!
@@ -33,6 +33,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+    
+    self.automaticallyAdjustsScrollViewInsets = false
   }
 
   func addFancyBackground() {
@@ -99,7 +101,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
     cell.imageWidth.constant = planetImageSize
     cell.imageHeight.constant = planetImageSize
     cell.nameLabel.text = currentPlanet.name
-    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
+    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.bigLabelColor)
     return cell
   }
 
@@ -128,14 +130,12 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
 // Parallax scrolling!
 extension PlanetsCollectionViewController {
-
   override func scrollViewDidScroll(scrollView: UIScrollView) {
     let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
     let backgroundTravel:CGFloat = self.anotherImage.frame.width -  self.view.frame.width
     anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
     systemMap.showPlanet(Int(round(pctThere * CGFloat(SolarSystem.sharedInstance.planetCount()))))
   }
-
 }
 
 

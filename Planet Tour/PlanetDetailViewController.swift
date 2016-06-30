@@ -47,11 +47,17 @@ class PlanetDetailViewController: UIViewController {
     }
   }
 
+
   func updateLabelColors() {
-    let labelsToRecolor = [planetNameLabel, yearLengthLabel, massLabel, funFactLabel, yearTitle, massTitle, funFactTitle]
-    for nextLabel:UILabel in labelsToRecolor {
-      nextLabel.textColor = RCValues.sharedInstance.colorForKey(.labelColor)
+    let titlesToRecolor = [yearTitle, massTitle, funFactTitle]
+    for nextLabel:UILabel in titlesToRecolor {
+      nextLabel.textColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
     }
+    let labelsToRecolor = [yearLengthLabel, massLabel, funFactLabel]
+    for nextLabel:UILabel in labelsToRecolor {
+      nextLabel.textColor = RCValues.sharedInstance.colorForKey(.detailInfoColor)
+    }
+    planetNameLabel.textColor = RCValues.sharedInstance.colorForKey(.detailTitleColor)
   }
 
   func updateLookForPlanet() {

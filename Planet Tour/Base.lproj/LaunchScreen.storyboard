@@ -64,6 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mars" width="300" height="300"/>
+        <image name="Mars" width="200" height="200"/>
     </resources>
 </document>

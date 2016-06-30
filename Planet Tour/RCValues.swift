@@ -10,11 +10,13 @@ import Foundation
 import Firebase
 
 enum ValueKey: String {
-  case labelColor
-  case planetaryBackgroundColor
+  case bigLabelColor
+  case appPrimaryColor
+  case appSecondaryColor
+  case detailTitleColor
+  case detailInfoColor
   case subscribeBannerText
   case subscribeBannerButton
-  case subscribeBannerBGColor
   case subscribeVCText
   case subscribeVCButton
   case shouldWeIncludePluto
@@ -38,11 +40,13 @@ class RCValues {
 
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
-      ValueKey.labelColor.rawValue: "#FFFFFFFF",
-      ValueKey.planetaryBackgroundColor.rawValue: "#000000FF",
-      ValueKey.subscribeBannerText.rawValue: "Liking Planet Tour?",
-      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!",
-      ValueKey.subscribeBannerBGColor.rawValue: "#999999FF",
+      ValueKey.bigLabelColor.rawValue: "#FFFFFF66",
+      ValueKey.appPrimaryColor.rawValue: "#FBB03B",
+      ValueKey.appSecondaryColor.rawValue: "#535E66",
+      ValueKey.detailTitleColor.rawValue: "#FFFFFF",
+      ValueKey.detailInfoColor.rawValue: "#CCCCCC",
+      ValueKey.subscribeBannerText.rawValue: "Liking Planet Tour? Get our newsletter!",
+      ValueKey.subscribeBannerButton.rawValue: ">>",
       ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
       ValueKey.subscribeVCButton.rawValue: "Subscribe",
       ValueKey.shouldWeIncludePluto.rawValue: false,
