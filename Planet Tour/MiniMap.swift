@@ -1,10 +1,24 @@
-//
-//  MiniMap.swift
-//  Planet Tour
-//
-//  Created by Todd Kerpelman on 6/15/16.
-//  Copyright © 2016 Razeware. All rights reserved.
-//
+/**
+ * Copyright (c) 2016 Razeware LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
 import UIKit
 
@@ -46,7 +60,8 @@ class MiniMap: UIView {
   }
 
   func createOverviewImage() {
-    overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImageWithCapInsets(UIEdgeInsets(top: 5.0,left: 5.0,bottom: 5.0,right: 5.0)))
+    let frameInsets = UIEdgeInsets(top: 5.0,left: 5.0,bottom: 5.0,right: 5.0)
+    overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImageWithCapInsets(frameInsets))
     addSubview(overviewImage)
     showPlanet(0)
   }
@@ -57,14 +72,14 @@ class MiniMap: UIView {
       oldPlanet = planetNum
       let normalRect = frameRects[planetNum]
       let multiplier = mapImage.bounds.width / originalFrameBasis
-      let destinationRect = CGRect(x: normalRect.origin.x * multiplier, y: normalRect.origin.y * multiplier, width: normalRect.width * multiplier, height: normalRect.height * multiplier)
+      let destinationRect = CGRect(x: normalRect.origin.x * multiplier,
+                                   y: normalRect.origin.y * multiplier,
+                                   width: normalRect.width * multiplier,
+                                   height: normalRect.height * multiplier)
       UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
         self.overviewImage.frame = destinationRect
         }, completion: nil)
-
-
     }
-
   }
 
 
