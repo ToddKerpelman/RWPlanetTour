@@ -21,7 +21,7 @@ enum ValueKey: String {
   case subscribeVCButton
   case shouldWeIncludePluto
   case experimentGroup
-  case imageScaleFactor
+  case planetImageScaleFactor
 }
 
 
@@ -51,7 +51,7 @@ class RCValues {
       ValueKey.subscribeVCButton.rawValue: "Subscribe",
       ValueKey.shouldWeIncludePluto.rawValue: false,
       ValueKey.experimentGroup.rawValue: "default",
-      ValueKey.imageScaleFactor.rawValue: 5.0
+      ValueKey.planetImageScaleFactor.rawValue: 0.33
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
@@ -95,7 +95,6 @@ class RCValues {
       return 0.0
     }
   }
-
 
   func colorForKey(key: ValueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"

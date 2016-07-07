@@ -27,6 +27,7 @@ class SolarSystem {
 
   private var planets: [Planet]!
   private var shouldWeIncludePluto = true
+  private var scaleFactors: [Double]!
 
   private init() {
     planets = [
@@ -63,18 +64,27 @@ class SolarSystem {
     ]
     if RCValues.sharedInstance.boolForKey(.shouldWeIncludePluto) {
      let pluto = Planet.init(name: "Pluto", yearInDays: 90581, massInEarths: 0.002, radiusInEarths:  0.035,
-                  funFact: "Ostracized by friends for spoiling Game of Thrones before got to watch it.",
+                  funFact: "Ostracized by friends for giving away too many Game of Thrones spoilers.",
                   imageName: "Pluto",
                   imageCredit: "NASA/JHUAPL/SwRI")
       planets.append(pluto)
     }
+    calculatePlanetScales()
+  }
+
+  func calculatePlanetScales() {
+    scaleFactors = Array(count: planets.count, repeatedValue: 1.0)
+    // Yes, we've hard-coded Jupiter to be our largest planet. That's probably a safe assumption.
+    let largestRadius = planetAtNumber(4).radiusInEarths
+    for i in 0..<planets.count {
+      let ratio = planetAtNumber(i).radiusInEarths / largestRadius
+      scaleFactors[i] = pow(ratio, RCValues.sharedInstance.doubleForKey(ValueKey.planetImageScaleFactor))
+    }
   }
 
   func getScaleFactorForPlanet(planetNumber: Int) -> Double {
-    // Yes, we've hard-coded Jupiter to be our largest planet. That's probably a safe assumption.
-    let largestRadius = planetAtNumber(4).radiusInEarths
-    let ratio = planetAtNumber(planetNumber).radiusInEarths / largestRadius
-    return pow(ratio, 0.33)
+    guard planetNumber <= scaleFactors.count else { return 1.0 }
+    return scaleFactors[planetNumber]
   }
 
 
