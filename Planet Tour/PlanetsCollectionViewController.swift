@@ -24,7 +24,7 @@ import UIKit
 import Firebase
 
 private let reuseIdentifier = "PlanetCell"
-private let sectionInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+private let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
 
 class PlanetsCollectionViewController: UICollectionViewController {
   var anotherImage: UIImageView!
@@ -32,8 +32,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    collectionView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
-    
+    collectionView?.backgroundColor = UIColor(white: 0, alpha: 0.6)
     self.automaticallyAdjustsScrollViewInsets = false
   }
 
@@ -42,18 +41,24 @@ class PlanetsCollectionViewController: UICollectionViewController {
     guard let galaxyImage = UIImage(named: "GalaxyBackground") else { return }
     anotherImage = UIImageView(image: galaxyImage)
     let scaleFactor = view.bounds.height / galaxyImage.size.height
-    anotherImage.frame = CGRect(x: 0, y: 0, width: galaxyImage.size.width * scaleFactor, height: galaxyImage.size.height * scaleFactor)
+    anotherImage.frame = CGRect(x: 0,
+                                y: 0,
+                                width: galaxyImage.size.width * scaleFactor,
+                                height: galaxyImage.size.height * scaleFactor)
     self.view.insertSubview(anotherImage, atIndex: 0)
-
-    FIRAnalytics.logEventWithName(kFIREventPostScore, parameters: [kFIRParameterScore: 4200])
   }
 
   func addMiniMap() {
     if systemMap != nil { return }
-
-    let miniMapFrame = CGRect(x: 40, y: view.bounds.height - 80, width: view.bounds.width - 80, height: 40)
+    let miniMapFrame = CGRect(x: view.bounds.width * 0.1, y: view.bounds.height - 80,
+                              width: view.bounds.width * 0.8, height: 40)
     systemMap = MiniMap(frame: miniMapFrame)
     self.view.addSubview(systemMap)
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    customizeNavigationBar()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -63,13 +68,20 @@ class PlanetsCollectionViewController: UICollectionViewController {
     addMiniMap()
   }
 
+  func customizeNavigationBar() {
+    guard let navBar = self.navigationController?.navigationBar else { return }
+    navBar.barTintColor = RCValues.sharedInstance.colorForKey(ValueKey.appSecondaryColor)
+    let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFontOfSize(18.0)
+    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
+                                  NSFontAttributeName : targetFont]
+  }
+
   func removeWaitingViewController() {
     guard let stackViewControllers = navigationController?.viewControllers else { return }
     if stackViewControllers[0].isKindOfClass(WaitingViewController) {
       navigationController!.viewControllers.removeAtIndex(0)
     }
   }
-
 
   func planetForIndexPath(indexPath: NSIndexPath) -> Planet {
     return SolarSystem.sharedInstance.planetAtNumber(indexPath.row);
@@ -91,7 +103,6 @@ class PlanetsCollectionViewController: UICollectionViewController {
     return withWidth * CGFloat(scaleFactor)
 
   }
-
 
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PlanetCell
