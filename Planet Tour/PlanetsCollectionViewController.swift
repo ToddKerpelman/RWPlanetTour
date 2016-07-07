@@ -33,7 +33,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView?.backgroundColor = UIColor(white: 0, alpha: 0.6)
-    self.automaticallyAdjustsScrollViewInsets = false
+    automaticallyAdjustsScrollViewInsets = false
   }
 
   func addFancyBackground() {
@@ -45,7 +45,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
                                 y: 0,
                                 width: galaxyImage.size.width * scaleFactor,
                                 height: galaxyImage.size.height * scaleFactor)
-    self.view.insertSubview(anotherImage, atIndex: 0)
+    view.insertSubview(anotherImage, atIndex: 0)
   }
 
   func addMiniMap() {
@@ -53,7 +53,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
     let miniMapFrame = CGRect(x: view.bounds.width * 0.1, y: view.bounds.height - 80,
                               width: view.bounds.width * 0.8, height: 40)
     systemMap = MiniMap(frame: miniMapFrame)
-    self.view.addSubview(systemMap)
+    view.addSubview(systemMap)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -69,7 +69,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
   func customizeNavigationBar() {
-    guard let navBar = self.navigationController?.navigationBar else { return }
+    guard let navBar = navigationController?.navigationBar else { return }
     navBar.barTintColor = RCValues.sharedInstance.colorForKey(.navBarBackground)
     let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFontOfSize(18.0)
     navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -143,7 +143,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 extension PlanetsCollectionViewController {
   override func scrollViewDidScroll(scrollView: UIScrollView) {
     let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
-    let backgroundTravel:CGFloat = self.anotherImage.frame.width -  self.view.frame.width
+    let backgroundTravel:CGFloat = anotherImage.frame.width -  view.frame.width
     anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
     systemMap.showPlanet(Int(round(pctThere * CGFloat(SolarSystem.sharedInstance.planetCount()))))
   }

@@ -46,7 +46,7 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
   override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
     guard let superItemAttributes = super.layoutAttributesForItemAtIndexPath(indexPath) else { return nil }
     let currentItemAttributes = superItemAttributes.copy() as! UICollectionViewLayoutAttributes
-    let sectionInset = (self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
+    let sectionInset = (collectionView?.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
     if indexPath.item == 0 {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing
@@ -58,7 +58,7 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     let previousFrameRightPoint = previousFrame.origin.y + previousFrame.size.height + betweenSpacing
     let previousFrameTop = previousFrame.origin.y
     let currentFrame = currentItemAttributes.frame
-    let stretchedCurrentFrame =  CGRect(x: currentFrame.origin.x, y: previousFrameTop, width: currentFrame.size.width, height: self.collectionView!.frame.size.height)
+    let stretchedCurrentFrame =  CGRect(x: currentFrame.origin.x, y: previousFrameTop, width: currentFrame.size.width, height: collectionView!.frame.size.height)
     if (!CGRectIntersectsRect(previousFrame, stretchedCurrentFrame)) {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing

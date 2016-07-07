@@ -34,7 +34,7 @@ class ContainerViewController: UIViewController {
   }
 
   override func viewWillAppear(animated: Bool) {
-    self.updateNavigationColors()
+    updateNavigationColors()
   }
 
   func updateNavigationColors() {
