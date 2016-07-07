@@ -70,7 +70,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   func customizeNavigationBar() {
     guard let navBar = self.navigationController?.navigationBar else { return }
-    navBar.barTintColor = RCValues.sharedInstance.colorForKey(ValueKey.appSecondaryColor)
+    navBar.barTintColor = RCValues.sharedInstance.colorForKey(.navBarBackground)
     let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFontOfSize(18.0)
     navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
                                   NSFontAttributeName : targetFont]

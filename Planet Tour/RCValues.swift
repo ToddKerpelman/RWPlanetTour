@@ -12,7 +12,8 @@ import Firebase
 enum ValueKey: String {
   case bigLabelColor
   case appPrimaryColor
-  case appSecondaryColor
+  case navBarBackground
+  case navTintColor
   case detailTitleColor
   case detailInfoColor
   case subscribeBannerText
@@ -42,7 +43,8 @@ class RCValues {
     let appDefaults: [String: NSObject] = [
       ValueKey.bigLabelColor.rawValue: "#FFFFFF66",
       ValueKey.appPrimaryColor.rawValue: "#FBB03B",
-      ValueKey.appSecondaryColor.rawValue: "#535E66",
+      ValueKey.navBarBackground.rawValue: "#535E66",
+      ValueKey.navTintColor.rawValue: "#FBB03B",
       ValueKey.detailTitleColor.rawValue: "#FFFFFF",
       ValueKey.detailInfoColor.rawValue: "#CCCCCC",
       ValueKey.subscribeBannerText.rawValue: "Liking Planet Tour? Get our newsletter!",

@@ -38,7 +38,7 @@ class ContainerViewController: UIViewController {
   }
 
   func updateNavigationColors() {
-    navigationController?.navigationBar.tintColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
+    navigationController?.navigationBar.tintColor = RCValues.sharedInstance.colorForKey(.navTintColor)
   }
 
   func updateBanner() {
