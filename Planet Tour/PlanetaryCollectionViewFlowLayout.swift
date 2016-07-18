@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * Note: Thanks to StackOverflow user "Haurus" for the top-aligned CollectionViewFlowLayout
+ * Thanks to StackOverflow user "Haurus" for the top-aligned CollectionViewFlowLayout
  * code. (See here: http://goo.gl/ISUiD2)
  *
  */
@@ -43,6 +43,7 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     return attributesToReturn
   }
 
+  // This gives us a top-aligned horizontal layout
   override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
     guard let superItemAttributes = super.layoutAttributesForItemAtIndexPath(indexPath) else { return nil }
     let currentItemAttributes = superItemAttributes.copy() as! UICollectionViewLayoutAttributes
@@ -69,6 +70,31 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     frame.origin.y = previousFrameRightPoint
     currentItemAttributes.frame = frame
     return currentItemAttributes
+  }
+
+  // This controlls the scrolling of the collection view so that it comes to rest with the closest
+  // planet on the center of the screen
+  override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    guard let cv = self.collectionView else { return super.targetContentOffsetForProposedContentOffset(proposedContentOffset) }
+    let cvBounds = cv.bounds
+    let halfWidth = cvBounds.size.width * 0.5;
+    let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth;
+    if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(cvBounds) as [UICollectionViewLayoutAttributes]? {
+      let closestAttribute = attributesForVisibleCells.reduce(nil) { (closest : UICollectionViewLayoutAttributes?, nextAttribute) in
+        getClosestAttribute(closest, nextAttribute: nextAttribute, targetCenterX: proposedContentOffsetCenterX)
+      }
+      return CGPoint(x: closestAttribute!.center.x - halfWidth, y: proposedContentOffset.y)
+    }
+    return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
+  }
+
+  func getClosestAttribute(closestSoFar: UICollectionViewLayoutAttributes?, nextAttribute: UICollectionViewLayoutAttributes, targetCenterX: CGFloat) -> UICollectionViewLayoutAttributes? {
+    if closestSoFar == nil {
+      return nextAttribute
+    } else if fabs(nextAttribute.center.x - targetCenterX) < fabs(closestSoFar!.center.x - targetCenterX) {
+      return nextAttribute
+    }
+    return closestSoFar
   }
 
 }
