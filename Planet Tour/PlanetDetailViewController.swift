@@ -47,7 +47,6 @@ class PlanetDetailViewController: UIViewController {
     }
   }
 
-
   func updateLabelColors() {
     let titlesToRecolor = [yearTitle, massTitle, funFactTitle]
     for nextLabel:UILabel in titlesToRecolor {
@@ -69,6 +68,5 @@ class PlanetDetailViewController: UIViewController {
     funFactLabel.text = planet.funFact
     imageCreditLabel.text = "Image credit: \(planet.imageCredit)"
   }
-
 
 }

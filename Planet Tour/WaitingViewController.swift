@@ -39,6 +39,4 @@ class WaitingViewController: UIViewController {
     performSegueWithIdentifier("loadingDoneSegue", sender: self)
   }
 
-
-
 }
