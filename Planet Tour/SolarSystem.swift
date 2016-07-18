@@ -87,7 +87,6 @@ class SolarSystem {
     return scaleFactors[planetNumber]
   }
 
-
   func planetCount() -> Int {
     return planets.count
   }
@@ -95,7 +94,5 @@ class SolarSystem {
   func planetAtNumber(planetNumber: Int) -> Planet {
     return planets[planetNumber]
   }
-
-
 
 }

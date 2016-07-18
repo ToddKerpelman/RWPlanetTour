@@ -66,7 +66,6 @@ class MiniMap: UIView {
     showPlanet(0)
   }
 
-
   func showPlanet(planetNum: Int) {
     if planetNum != oldPlanet {
       oldPlanet = planetNum

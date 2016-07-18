@@ -31,5 +31,4 @@ class CrossfadeSegue: UIStoryboardSegue {
       secondVCView.alpha = 1.0
     }
   }
-
 }

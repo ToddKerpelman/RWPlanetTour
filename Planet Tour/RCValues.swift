@@ -39,7 +39,6 @@ enum ValueKey: String {
   case planetImageScaleFactor
 }
 
-
 class RCValues {
   static let sharedInstance = RCValues()
 

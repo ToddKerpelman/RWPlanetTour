@@ -41,5 +41,4 @@ public struct Planet {
     self.imageCredit = imageCredit
   }
 
-
 }
