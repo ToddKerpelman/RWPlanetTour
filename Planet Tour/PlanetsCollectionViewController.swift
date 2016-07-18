@@ -24,7 +24,7 @@ import UIKit
 import Firebase
 
 private let reuseIdentifier = "PlanetCell"
-private let sectionInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+private let sectionInsets = UIEdgeInsets(top: 10, left: 100, bottom: 10, right: 100)
 
 class PlanetsCollectionViewController: UICollectionViewController {
   var anotherImage: UIImageView!
@@ -142,13 +142,13 @@ class PlanetsCollectionViewController: UICollectionViewController {
 // Parallax scrolling!
 extension PlanetsCollectionViewController {
   override func scrollViewDidScroll(scrollView: UIScrollView) {
-    let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
-    let backgroundTravel:CGFloat = anotherImage.frame.width -  view.frame.width
-    anotherImage.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
-    systemMap.showPlanet(Int(round(pctThere * CGFloat(SolarSystem.sharedInstance.planetCount()))))
+    guard let collectionView = collectionView else { return }
+    let centerX: CGFloat = collectionView.contentOffset.x + (collectionView.bounds.width * 0.5)
+    let centerPoint = CGPoint(x: centerX, y: collectionView.bounds.height * 0.5)
+    guard let visibleIndexPath = collectionView.indexPathForItemAtPoint(centerPoint) else { return }
+    systemMap.showPlanet(visibleIndexPath.item)
   }
 }
-
 
 extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
