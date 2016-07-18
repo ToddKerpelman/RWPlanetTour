@@ -21,7 +21,6 @@
  */
 
 import UIKit
-import Firebase
 
 private let reuseIdentifier = "PlanetCell"
 private let sectionInsets = UIEdgeInsets(top: 10, left: 80, bottom: 10, right: 70)
