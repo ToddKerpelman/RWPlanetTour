@@ -43,17 +43,17 @@ class PlanetDetailViewController: UIViewController {
     updateLabelColors()
     updateLookForPlanet()
     if let planet = self.planet {
-      FIRAnalytics.logEventWithName("visited_planet_details", parameters: ["planet": planet.name])
+      FIRAnalytics.logEvent(withName: "visited_planet_details", parameters: ["planet": planet.name])
     }
   }
 
   func updateLabelColors() {
-    let titlesToRecolor = [yearTitle, massTitle, funFactTitle]
-    for nextLabel:UILabel in titlesToRecolor {
+    let titlesToRecolor: [UILabel] = [yearTitle, massTitle, funFactTitle]
+    for nextLabel in titlesToRecolor {
       nextLabel.textColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
     }
-    let labelsToRecolor = [yearLengthLabel, massLabel, funFactLabel]
-    for nextLabel:UILabel in labelsToRecolor {
+    let labelsToRecolor: [UILabel] = [yearLengthLabel, massLabel, funFactLabel]
+    for nextLabel in labelsToRecolor {
       nextLabel.textColor = RCValues.sharedInstance.colorForKey(.detailInfoColor)
     }
     planetNameLabel.textColor = RCValues.sharedInstance.colorForKey(.detailTitleColor)

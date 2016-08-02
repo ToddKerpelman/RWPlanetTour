@@ -78,9 +78,9 @@ class RCValues {
 
   func fetchCloudValues() {
     // Don't do this in production!
-    let fetchDuration : NSTimeInterval = 0
+    let fetchDuration : TimeInterval = 0
     activateDebugMode()
-    FIRRemoteConfig.remoteConfig().fetchWithExpirationDuration(fetchDuration) {  [weak self] (status, error) in
+    FIRRemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) {  [weak self] (status, error) in
        guard let strongSelf = self else { return }
       if error != nil {
         print ("Uh-oh. Got an error fetching remote values \(error)")
@@ -95,15 +95,15 @@ class RCValues {
 
   // MARK: - Retrieving values
 
-  func boolForKey(key: ValueKey) -> Bool {
+  func boolForKey(_ key: ValueKey) -> Bool {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue ?? false
   }
 
-  func stringForKey(key: ValueKey) -> String {
+  func stringForKey(_ key: ValueKey) -> String {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
   }
 
-  func doubleForKey(key: ValueKey) -> Double {
+  func doubleForKey(_ key: ValueKey) -> Double {
     if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
       return numberValue.doubleValue
     } else {
@@ -111,7 +111,7 @@ class RCValues {
     }
   }
 
-  func colorForKey(key: ValueKey) -> UIColor {
+  func colorForKey(_ key: ValueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor

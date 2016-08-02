@@ -33,7 +33,7 @@ class ContainerViewController: UIViewController {
     updateBanner()
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     updateNavigationColors()
   }
 
@@ -45,10 +45,10 @@ class ContainerViewController: UIViewController {
     bannerView.backgroundColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
     bannerLabel.text = RCValues.sharedInstance.stringForKey(.subscribeBannerText)
     getNewsletterButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeBannerButton),
-                                 forState: .Normal)
+                                 for: UIControlState())
   }
 
-  @IBAction func getNewsletterButtonWasPressed(sender: AnyObject) {
+  @IBAction func getNewsletterButtonWasPressed(_ sender: AnyObject) {
     // No-op right now.
   }
 

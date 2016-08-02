@@ -32,35 +32,35 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
   let topSpacing: CGFloat = 80
   let betweenSpacing: CGFloat = 10
 
-  override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    guard let superAttributes = super.layoutAttributesForElementsInRect(rect) else { return nil }
+  override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    guard let superAttributes = super.layoutAttributesForElements(in: rect) else { return nil }
     guard let attributesToReturn = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else { return nil }
     for attribute in attributesToReturn {
       if attribute.representedElementKind == nil {
-        attribute.frame = layoutAttributesForItemAtIndexPath(attribute.indexPath)!.frame
+        attribute.frame = layoutAttributesForItem(at: attribute.indexPath)!.frame
       }
     }
     return attributesToReturn
   }
 
   // This gives us a top-aligned horizontal layout
-  override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-    guard let superItemAttributes = super.layoutAttributesForItemAtIndexPath(indexPath) else { return nil }
+  override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    guard let superItemAttributes = super.layoutAttributesForItem(at: indexPath) else { return nil }
     let currentItemAttributes = superItemAttributes.copy() as! UICollectionViewLayoutAttributes
     let sectionInset = (collectionView?.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
-    if indexPath.item == 0 {
+    if (indexPath as NSIndexPath).item == 0 {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing
       currentItemAttributes.frame = frame
       return currentItemAttributes
     }
-    let previousIndexPath = NSIndexPath.init(forItem: indexPath.item - 1, inSection: indexPath.section)
-    guard let previousFrame = layoutAttributesForItemAtIndexPath(previousIndexPath)?.frame else { return nil }
+    let previousIndexPath = IndexPath.init(item: (indexPath as NSIndexPath).item - 1, section: (indexPath as NSIndexPath).section)
+    guard let previousFrame = layoutAttributesForItem(at: previousIndexPath)?.frame else { return nil }
     let previousFrameRightPoint = previousFrame.origin.y + previousFrame.size.height + betweenSpacing
     let previousFrameTop = previousFrame.origin.y
     let currentFrame = currentItemAttributes.frame
     let stretchedCurrentFrame =  CGRect(x: currentFrame.origin.x, y: previousFrameTop, width: currentFrame.size.width, height: collectionView!.frame.size.height)
-    if (!CGRectIntersectsRect(previousFrame, stretchedCurrentFrame)) {
+    if (!previousFrame.intersects(stretchedCurrentFrame)) {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing
       currentItemAttributes.frame = frame
@@ -74,21 +74,21 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
   // This controlls the scrolling of the collection view so that it comes to rest with the closest
   // planet on the center of the screen
-  override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-    guard let cv = self.collectionView else { return super.targetContentOffsetForProposedContentOffset(proposedContentOffset) }
+  override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    guard let cv = self.collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
     let cvBounds = cv.bounds
     let halfWidth = cvBounds.size.width * 0.5;
     let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth;
-    if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(cvBounds) as [UICollectionViewLayoutAttributes]? {
+    if let attributesForVisibleCells = self.layoutAttributesForElements(in: cvBounds) as [UICollectionViewLayoutAttributes]? {
       let closestAttribute = attributesForVisibleCells.reduce(nil) { (closest : UICollectionViewLayoutAttributes?, nextAttribute) in
         getClosestAttribute(closest, nextAttribute: nextAttribute, targetCenterX: proposedContentOffsetCenterX)
       }
       return CGPoint(x: closestAttribute!.center.x - halfWidth, y: proposedContentOffset.y)
     }
-    return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
+    return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
   }
 
-  func getClosestAttribute(closestSoFar: UICollectionViewLayoutAttributes?, nextAttribute: UICollectionViewLayoutAttributes, targetCenterX: CGFloat) -> UICollectionViewLayoutAttributes? {
+  func getClosestAttribute(_ closestSoFar: UICollectionViewLayoutAttributes?, nextAttribute: UICollectionViewLayoutAttributes, targetCenterX: CGFloat) -> UICollectionViewLayoutAttributes? {
     if closestSoFar == nil {
       return nextAttribute
     } else if fabs(nextAttribute.center.x - targetCenterX) < fabs(closestSoFar!.center.x - targetCenterX) {

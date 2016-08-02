@@ -44,7 +44,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
                                 y: 0,
                                 width: galaxyImage.size.width * scaleFactor,
                                 height: galaxyImage.size.height * scaleFactor)
-    view.insertSubview(anotherImage, atIndex: 0)
+    view.insertSubview(anotherImage, at: 0)
   }
 
   func addMiniMap() {
@@ -55,12 +55,12 @@ class PlanetsCollectionViewController: UICollectionViewController {
     view.addSubview(systemMap)
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     customizeNavigationBar()
   }
 
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     removeWaitingViewController()
     addFancyBackground()
@@ -70,43 +70,43 @@ class PlanetsCollectionViewController: UICollectionViewController {
   func customizeNavigationBar() {
     guard let navBar = navigationController?.navigationBar else { return }
     navBar.barTintColor = RCValues.sharedInstance.colorForKey(.navBarBackground)
-    let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFontOfSize(18.0)
-    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
+    let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)
+    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white(),
                                   NSFontAttributeName : targetFont]
   }
 
   func removeWaitingViewController() {
     guard let stackViewControllers = navigationController?.viewControllers else { return }
-    if stackViewControllers[0].isKindOfClass(WaitingViewController) {
-      navigationController!.viewControllers.removeAtIndex(0)
+    if stackViewControllers[0].isKind(of: WaitingViewController.self) {
+      navigationController!.viewControllers.remove(at: 0)
     }
   }
 
-  func planetForIndexPath(indexPath: NSIndexPath) -> Planet {
-    return SolarSystem.sharedInstance.planetAtNumber(indexPath.row);
+  func planetForIndexPath(_ indexPath: IndexPath) -> Planet {
+    return SolarSystem.sharedInstance.planetAtNumber((indexPath as NSIndexPath).row);
   }
 
   // MARK: UICollectionViewDataSource
 
-  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
 
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return SolarSystem.sharedInstance.planetCount()
   }
 
 
-  func getImageSizeForPlanetNum(planet: Int, withWidth: CGFloat) -> CGFloat {
+  func getImageSizeForPlanetNum(_ planet: Int, withWidth: CGFloat) -> CGFloat {
     let scaleFactor = SolarSystem.sharedInstance.getScaleFactorForPlanet(planet)
     return withWidth * CGFloat(scaleFactor)
 
   }
 
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PlanetCell
-    let currentPlanet = SolarSystem.sharedInstance.planetAtNumber(indexPath.row)
-    let planetImageSize = getImageSizeForPlanetNum(indexPath.row, withWidth: cell.bounds.width)
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PlanetCell
+    let currentPlanet = SolarSystem.sharedInstance.planetAtNumber((indexPath as NSIndexPath).row)
+    let planetImageSize = getImageSizeForPlanetNum((indexPath as NSIndexPath).row, withWidth: cell.bounds.width)
     cell.imageView.image = currentPlanet.image
     cell.imageWidth.constant = planetImageSize
     cell.imageHeight.constant = planetImageSize
@@ -117,22 +117,21 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   // MARK: UICollectionViewDelegate
 
-  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("planetDetailSegue", sender: self)
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "planetDetailSegue", sender: self)
   }
 
   // MARK: - Navigation
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    guard let planetDetail = segue.destinationViewController as? PlanetDetailViewController,
-      let selectedPlanetNumber = collectionView?.indexPathsForSelectedItems()?[0].row
-      else { return }
+  override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    guard let planetDetail = segue.destinationViewController as? PlanetDetailViewController else { return }
+    let selectedPlanetNumber = ((collectionView?.indexPathsForSelectedItems()?[0])! as NSIndexPath).row
     planetDetail.planet = SolarSystem.sharedInstance.planetAtNumber(selectedPlanetNumber)
   }
 
-  override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-    super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+  override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.willTransition(to: newCollection, with: coordinator)
     collectionView?.collectionViewLayout.invalidateLayout()
   }
 
@@ -140,12 +139,12 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
 // Parallax scrolling!
 extension PlanetsCollectionViewController {
-  override func scrollViewDidScroll(scrollView: UIScrollView) {
+  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     guard let collectionView = collectionView else { return }
     let centerX: CGFloat = collectionView.contentOffset.x + (collectionView.bounds.width * 0.5)
     let centerPoint = CGPoint(x: centerX, y: collectionView.bounds.height * 0.5)
-    guard let visibleIndexPath = collectionView.indexPathForItemAtPoint(centerPoint) else { return }
-    systemMap.showPlanet(visibleIndexPath.item)
+    guard let visibleIndexPath = collectionView.indexPathForItem(at: centerPoint) else { return }
+    systemMap.showPlanet((visibleIndexPath as NSIndexPath).item)
   }
 }
 
@@ -158,13 +157,13 @@ extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
     return cellSize
   }
 
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let cellHeight = biggestSizeThatFits()
-    let cellWidth = max(0.5, CGFloat(SolarSystem.sharedInstance.getScaleFactorForPlanet(indexPath.row))) * cellHeight
+    let cellWidth = max(0.5, CGFloat(SolarSystem.sharedInstance.getScaleFactorForPlanet((indexPath as NSIndexPath).row))) * cellHeight
     return CGSize(width: cellWidth, height: cellHeight)
   }
 
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return sectionInsets
   }
 

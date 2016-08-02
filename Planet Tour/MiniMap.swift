@@ -55,18 +55,18 @@ class MiniMap: UIView {
 
   func createMapImage() {
     mapImage = UIImageView(image: UIImage(named: "SolarSystem"))
-    mapImage.contentMode = UIViewContentMode.ScaleAspectFit
+    mapImage.contentMode = UIViewContentMode.scaleAspectFit
     addSubview(mapImage)
   }
 
   func createOverviewImage() {
     let frameInsets = UIEdgeInsets(top: 5.0,left: 5.0,bottom: 5.0,right: 5.0)
-    overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImageWithCapInsets(frameInsets))
+    overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImage(withCapInsets: frameInsets))
     addSubview(overviewImage)
     showPlanet(0)
   }
 
-  func showPlanet(planetNum: Int) {
+  func showPlanet(_ planetNum: Int) {
     if planetNum != oldPlanet {
       oldPlanet = planetNum
       let normalRect = frameRects[planetNum]
@@ -75,7 +75,7 @@ class MiniMap: UIView {
                                    y: normalRect.origin.y * multiplier,
                                    width: normalRect.width * multiplier,
                                    height: normalRect.height * multiplier)
-      UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+      UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions(), animations: {
         self.overviewImage.frame = destinationRect
         }, completion: nil)
     }

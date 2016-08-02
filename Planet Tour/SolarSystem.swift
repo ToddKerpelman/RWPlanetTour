@@ -73,7 +73,7 @@ class SolarSystem {
   }
 
   func calculatePlanetScales() {
-    scaleFactors = Array(count: planets.count, repeatedValue: 1.0)
+    scaleFactors = Array(repeating: 1.0, count: planets.count)
     // Yes, we've hard-coded Jupiter to be our largest planet. That's probably a safe assumption.
     let largestRadius = planetAtNumber(4).radiusInEarths
     for i in 0..<planets.count {
@@ -82,7 +82,7 @@ class SolarSystem {
     }
   }
 
-  func getScaleFactorForPlanet(planetNumber: Int) -> Double {
+  func getScaleFactorForPlanet(_ planetNumber: Int) -> Double {
     guard planetNumber <= scaleFactors.count else { return 1.0 }
     return scaleFactors[planetNumber]
   }
@@ -91,7 +91,7 @@ class SolarSystem {
     return planets.count
   }
 
-  func planetAtNumber(planetNumber: Int) -> Planet {
+  func planetAtNumber(_ planetNumber: Int) -> Planet {
     return planets[planetNumber]
   }
 

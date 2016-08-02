@@ -34,14 +34,14 @@ class GetNewsletterViewController: UIViewController {
     super.viewDidLoad()
     updateText()
     updateSubmitButton()
-    thankYouLabel.hidden = true
-    FIRAnalytics.logEventWithName("visited_newsletter_page", parameters: nil)
+    thankYouLabel.isHidden = true
+    FIRAnalytics.logEvent(withName: "visited_newsletter_page", parameters: nil)
   }
 
   func updateText() {
     instructionLabel.text = RCValues.sharedInstance.stringForKey(.subscribeVCText)
     submitButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeVCButton),
-                          forState: .Normal)
+                          for: UIControlState())
   }
 
   func updateSubmitButton() {
@@ -49,12 +49,12 @@ class GetNewsletterViewController: UIViewController {
     submitButton.layer.cornerRadius = 5.0
   }
 
-  @IBAction func submitButtonWasPressed(sender: AnyObject) {
+  @IBAction func submitButtonWasPressed(_ sender: AnyObject) {
     // We won't actually submit an email, but we can pretend
-    submitButton.hidden = true
-    thankYouLabel.hidden = false
-    emailTextField.enabled = false
-    FIRAnalytics.logEventWithName("joined_newsletter", parameters: nil)
+    submitButton.isHidden = true
+    thankYouLabel.isHidden = false
+    emailTextField.isEnabled = false
+    FIRAnalytics.logEvent(withName: "joined_newsletter", parameters: nil)
   }
 
 }
