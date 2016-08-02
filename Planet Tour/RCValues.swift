@@ -95,15 +95,15 @@ class RCValues {
 
   // MARK: - Retrieving values
 
-  func boolForKey(_ key: ValueKey) -> Bool {
+  func bool(forKey key: ValueKey) -> Bool {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue ?? false
   }
 
-  func stringForKey(_ key: ValueKey) -> String {
+  func string(forKey key: ValueKey) -> String {
     return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
   }
 
-  func doubleForKey(_ key: ValueKey) -> Double {
+  func double(forKey key: ValueKey) -> Double {
     if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
       return numberValue.doubleValue
     } else {
@@ -111,7 +111,7 @@ class RCValues {
     }
   }
 
-  func colorForKey(_ key: ValueKey) -> UIColor {
+  func color(forKey key: ValueKey) -> UIColor {
     let colorAsHexString = FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? "#FFFFFFFF"
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor

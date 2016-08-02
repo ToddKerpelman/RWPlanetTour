@@ -69,7 +69,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   func customizeNavigationBar() {
     guard let navBar = navigationController?.navigationBar else { return }
-    navBar.barTintColor = RCValues.sharedInstance.colorForKey(.navBarBackground)
+    navBar.barTintColor = RCValues.sharedInstance.color(forKey: .navBarBackground)
     let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)
     navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white(),
                                   NSFontAttributeName : targetFont]
@@ -80,10 +80,6 @@ class PlanetsCollectionViewController: UICollectionViewController {
     if stackViewControllers[0].isKind(of: WaitingViewController.self) {
       navigationController!.viewControllers.remove(at: 0)
     }
-  }
-
-  func planetForIndexPath(_ indexPath: IndexPath) -> Planet {
-    return SolarSystem.sharedInstance.planetAtNumber((indexPath as NSIndexPath).row);
   }
 
   // MARK: UICollectionViewDataSource
@@ -97,21 +93,21 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
 
-  func getImageSizeForPlanetNum(_ planet: Int, withWidth: CGFloat) -> CGFloat {
-    let scaleFactor = SolarSystem.sharedInstance.getScaleFactorForPlanet(planet)
+  func getImageSize(for planetNum: Int, withWidth: CGFloat) -> CGFloat {
+    let scaleFactor = SolarSystem.sharedInstance.getScaleFactor(for: planetNum)
     return withWidth * CGFloat(scaleFactor)
 
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PlanetCell
-    let currentPlanet = SolarSystem.sharedInstance.planetAtNumber((indexPath as NSIndexPath).row)
-    let planetImageSize = getImageSizeForPlanetNum((indexPath as NSIndexPath).row, withWidth: cell.bounds.width)
+    let currentPlanet = SolarSystem.sharedInstance.planet(at: indexPath.row)
+    let planetImageSize = getImageSize(for: indexPath.row, withWidth: cell.bounds.width)
     cell.imageView.image = currentPlanet.image
     cell.imageWidth.constant = planetImageSize
     cell.imageHeight.constant = planetImageSize
     cell.nameLabel.text = currentPlanet.name
-    cell.nameLabel.textColor = RCValues.sharedInstance.colorForKey(.bigLabelColor)
+    cell.nameLabel.textColor = RCValues.sharedInstance.color(forKey: .bigLabelColor)
     return cell
   }
 
@@ -126,8 +122,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
     guard let planetDetail = segue.destinationViewController as? PlanetDetailViewController else { return }
-    let selectedPlanetNumber = ((collectionView?.indexPathsForSelectedItems()?[0])! as NSIndexPath).row
-    planetDetail.planet = SolarSystem.sharedInstance.planetAtNumber(selectedPlanetNumber)
+    let selectedPlanetNumber = (collectionView?.indexPathsForSelectedItems()?[0])!.row
+    planetDetail.planet = SolarSystem.sharedInstance.planet(at: selectedPlanetNumber)
   }
 
   override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -144,7 +140,7 @@ extension PlanetsCollectionViewController {
     let centerX: CGFloat = collectionView.contentOffset.x + (collectionView.bounds.width * 0.5)
     let centerPoint = CGPoint(x: centerX, y: collectionView.bounds.height * 0.5)
     guard let visibleIndexPath = collectionView.indexPathForItem(at: centerPoint) else { return }
-    systemMap.showPlanet((visibleIndexPath as NSIndexPath).item)
+    systemMap.showPlanet(number: visibleIndexPath.item)
   }
 }
 
@@ -159,7 +155,7 @@ extension PlanetsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let cellHeight = biggestSizeThatFits()
-    let cellWidth = max(0.5, CGFloat(SolarSystem.sharedInstance.getScaleFactorForPlanet((indexPath as NSIndexPath).row))) * cellHeight
+    let cellWidth = max(0.5, CGFloat(SolarSystem.sharedInstance.getScaleFactor(for: indexPath.row))) * cellHeight
     return CGSize(width: cellWidth, height: cellHeight)
   }
 

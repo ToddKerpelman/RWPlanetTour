@@ -62,7 +62,7 @@ class SolarSystem {
         imageName: "Neptune",
         imageCredit: "NASA"),
     ]
-    if RCValues.sharedInstance.boolForKey(.shouldWeIncludePluto) {
+    if RCValues.sharedInstance.bool(forKey: .shouldWeIncludePluto) {
      let pluto = Planet.init(name: "Pluto", yearInDays: 90581, massInEarths: 0.002, radiusInEarths:  0.035,
                   funFact: "Ostracized by friends for giving away too many Game of Thrones spoilers.",
                   imageName: "Pluto",
@@ -75,14 +75,14 @@ class SolarSystem {
   func calculatePlanetScales() {
     scaleFactors = Array(repeating: 1.0, count: planets.count)
     // Yes, we've hard-coded Jupiter to be our largest planet. That's probably a safe assumption.
-    let largestRadius = planetAtNumber(4).radiusInEarths
+    let largestRadius = planet(at: 4).radiusInEarths
     for i in 0..<planets.count {
-      let ratio = planetAtNumber(i).radiusInEarths / largestRadius
-      scaleFactors[i] = pow(ratio, RCValues.sharedInstance.doubleForKey(ValueKey.planetImageScaleFactor))
+      let ratio = planet(at: i).radiusInEarths / largestRadius
+      scaleFactors[i] = pow(ratio, RCValues.sharedInstance.double(forKey: ValueKey.planetImageScaleFactor))
     }
   }
 
-  func getScaleFactorForPlanet(_ planetNumber: Int) -> Double {
+  func getScaleFactor(for planetNumber: Int) -> Double {
     guard planetNumber <= scaleFactors.count else { return 1.0 }
     return scaleFactors[planetNumber]
   }
@@ -91,8 +91,8 @@ class SolarSystem {
     return planets.count
   }
 
-  func planetAtNumber(_ planetNumber: Int) -> Planet {
-    return planets[planetNumber]
+  func planet(at number: Int) -> Planet {
+    return planets[number]
   }
 
 }

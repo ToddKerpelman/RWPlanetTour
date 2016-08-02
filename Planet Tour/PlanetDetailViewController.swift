@@ -50,13 +50,13 @@ class PlanetDetailViewController: UIViewController {
   func updateLabelColors() {
     let titlesToRecolor: [UILabel] = [yearTitle, massTitle, funFactTitle]
     for nextLabel in titlesToRecolor {
-      nextLabel.textColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
+      nextLabel.textColor = RCValues.sharedInstance.color(forKey: .appPrimaryColor)
     }
     let labelsToRecolor: [UILabel] = [yearLengthLabel, massLabel, funFactLabel]
     for nextLabel in labelsToRecolor {
-      nextLabel.textColor = RCValues.sharedInstance.colorForKey(.detailInfoColor)
+      nextLabel.textColor = RCValues.sharedInstance.color(forKey: .detailInfoColor)
     }
-    planetNameLabel.textColor = RCValues.sharedInstance.colorForKey(.detailTitleColor)
+    planetNameLabel.textColor = RCValues.sharedInstance.color(forKey: .detailTitleColor)
   }
 
   func updateLookForPlanet() {

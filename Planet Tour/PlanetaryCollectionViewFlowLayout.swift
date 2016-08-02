@@ -48,13 +48,13 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     guard let superItemAttributes = super.layoutAttributesForItem(at: indexPath) else { return nil }
     let currentItemAttributes = superItemAttributes.copy() as! UICollectionViewLayoutAttributes
     let sectionInset = (collectionView?.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
-    if (indexPath as NSIndexPath).item == 0 {
+    if indexPath.item == 0 {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing
       currentItemAttributes.frame = frame
       return currentItemAttributes
     }
-    let previousIndexPath = IndexPath.init(item: (indexPath as NSIndexPath).item - 1, section: (indexPath as NSIndexPath).section)
+    let previousIndexPath = IndexPath.init(item: indexPath.item - 1, section: indexPath.section)
     guard let previousFrame = layoutAttributesForItem(at: previousIndexPath)?.frame else { return nil }
     let previousFrameRightPoint = previousFrame.origin.y + previousFrame.size.height + betweenSpacing
     let previousFrameTop = previousFrame.origin.y

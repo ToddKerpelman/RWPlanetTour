@@ -39,13 +39,13 @@ class GetNewsletterViewController: UIViewController {
   }
 
   func updateText() {
-    instructionLabel.text = RCValues.sharedInstance.stringForKey(.subscribeVCText)
-    submitButton.setTitle(RCValues.sharedInstance.stringForKey(.subscribeVCButton),
+    instructionLabel.text = RCValues.sharedInstance.string(forKey: .subscribeVCText)
+    submitButton.setTitle(RCValues.sharedInstance.string(forKey: .subscribeVCButton),
                           for: UIControlState())
   }
 
   func updateSubmitButton() {
-    submitButton.backgroundColor = RCValues.sharedInstance.colorForKey(.appPrimaryColor)
+    submitButton.backgroundColor = RCValues.sharedInstance.color(forKey: .appPrimaryColor)
     submitButton.layer.cornerRadius = 5.0
   }
 

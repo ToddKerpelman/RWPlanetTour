@@ -63,10 +63,10 @@ class MiniMap: UIView {
     let frameInsets = UIEdgeInsets(top: 5.0,left: 5.0,bottom: 5.0,right: 5.0)
     overviewImage = UIImageView(image: UIImage(named: "PlanetFrame")?.resizableImage(withCapInsets: frameInsets))
     addSubview(overviewImage)
-    showPlanet(0)
+    showPlanet(number: 0)
   }
 
-  func showPlanet(_ planetNum: Int) {
+  func showPlanet(number planetNum: Int) {
     if planetNum != oldPlanet {
       oldPlanet = planetNum
       let normalRect = frameRects[planetNum]
