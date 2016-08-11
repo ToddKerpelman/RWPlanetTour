@@ -71,7 +71,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
     guard let navBar = navigationController?.navigationBar else { return }
     navBar.barTintColor = RCValues.sharedInstance.color(forKey: .navBarBackground)
     let targetFont = UIFont.init(name: "Avenir-black", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)
-    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white(),
+    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white,
                                   NSFontAttributeName : targetFont]
   }
 
@@ -121,8 +121,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-    guard let planetDetail = segue.destinationViewController as? PlanetDetailViewController else { return }
-    let selectedPlanetNumber = (collectionView?.indexPathsForSelectedItems()?[0])!.row
+    guard let planetDetail = segue.destination as? PlanetDetailViewController else { return }
+    let selectedPlanetNumber = (collectionView?.indexPathsForSelectedItems?[0])!.row
     planetDetail.planet = SolarSystem.sharedInstance.planet(at: selectedPlanetNumber)
   }
 

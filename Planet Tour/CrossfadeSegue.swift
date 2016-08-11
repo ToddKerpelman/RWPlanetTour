@@ -24,9 +24,9 @@ import UIKit
 
 class CrossfadeSegue: UIStoryboardSegue {
   override func perform() {
-    let secondVCView = destinationViewController.view
+    let secondVCView = destination.view
     secondVCView?.alpha = 0.0
-    sourceViewController.navigationController?.pushViewController(destinationViewController, animated: false)
+    source.navigationController?.pushViewController(destination, animated: false)
     UIView.animate(withDuration: 0.4) { 
       secondVCView?.alpha = 1.0
     }
