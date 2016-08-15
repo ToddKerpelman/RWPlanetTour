@@ -26,7 +26,7 @@ private let reuseIdentifier = "PlanetCell"
 private let sectionInsets = UIEdgeInsets(top: 10, left: 80, bottom: 10, right: 70)
 
 class PlanetsCollectionViewController: UICollectionViewController {
-  var anotherImage: UIImageView!
+  var starBackground: UIImageView!
   var systemMap: MiniMap!
 
   override func viewDidLoad() {
@@ -36,15 +36,15 @@ class PlanetsCollectionViewController: UICollectionViewController {
   }
 
   func addFancyBackground() {
-    if anotherImage != nil { return }
+    if starBackground != nil { return }
     guard let galaxyImage = UIImage(named: "GalaxyBackground") else { return }
-    anotherImage = UIImageView(image: galaxyImage)
+    starBackground = UIImageView(image: galaxyImage)
     let scaleFactor = view.bounds.height / galaxyImage.size.height
-    anotherImage.frame = CGRect(x: 0,
+    starBackground.frame = CGRect(x: 0,
                                 y: 0,
                                 width: galaxyImage.size.width * scaleFactor,
                                 height: galaxyImage.size.height * scaleFactor)
-    view.insertSubview(anotherImage, at: 0)
+    view.insertSubview(starBackground, at: 0)
   }
 
   func addMiniMap() {
@@ -133,10 +133,14 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
 }
 
-// Parallax scrolling!
 extension PlanetsCollectionViewController {
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     guard let collectionView = collectionView else { return }
+    // Parallax scrolling!
+    let pctThere:CGFloat = scrollView.contentOffset.x / scrollView.contentSize.width
+    let backgroundTravel:CGFloat = starBackground.frame.width -  view.frame.width
+    starBackground.frame.origin = CGPoint(x: -pctThere * backgroundTravel, y: 0)
+    // Adjust the mini-map
     let centerX: CGFloat = collectionView.contentOffset.x + (collectionView.bounds.width * 0.5)
     let centerPoint = CGPoint(x: centerX, y: collectionView.bounds.height * 0.5)
     guard let visibleIndexPath = collectionView.indexPathForItem(at: centerPoint) else { return }
