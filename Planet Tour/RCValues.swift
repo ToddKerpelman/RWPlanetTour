@@ -54,19 +54,19 @@ class RCValues {
 
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
-      ValueKey.bigLabelColor.rawValue: "#FFFFFF66",
-      ValueKey.appPrimaryColor.rawValue: "#FBB03B",
-      ValueKey.navBarBackground.rawValue: "#535E66",
-      ValueKey.navTintColor.rawValue: "#FBB03B",
-      ValueKey.detailTitleColor.rawValue: "#FFFFFF",
-      ValueKey.detailInfoColor.rawValue: "#CCCCCC",
-      ValueKey.subscribeBannerText.rawValue: "Like Planet Tour?",
-      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!",
-      ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!",
-      ValueKey.subscribeVCButton.rawValue: "Subscribe",
-      ValueKey.shouldWeIncludePluto.rawValue: false,
-      ValueKey.experimentGroup.rawValue: "default",
-      ValueKey.planetImageScaleFactor.rawValue: 0.33
+      ValueKey.bigLabelColor.rawValue: "#FFFFFF66" as NSObject,
+      ValueKey.appPrimaryColor.rawValue: "#FBB03B" as NSObject,
+      ValueKey.navBarBackground.rawValue: "#535E66" as NSObject,
+      ValueKey.navTintColor.rawValue: "#FBB03B" as NSObject,
+      ValueKey.detailTitleColor.rawValue: "#FFFFFF" as NSObject,
+      ValueKey.detailInfoColor.rawValue: "#CCCCCC" as NSObject,
+      ValueKey.subscribeBannerText.rawValue: "Like Planet Tour?" as NSObject,
+      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!" as NSObject,
+      ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!" as NSObject,
+      ValueKey.subscribeVCButton.rawValue: "Subscribe" as NSObject,
+      ValueKey.shouldWeIncludePluto.rawValue: false as NSObject,
+      ValueKey.experimentGroup.rawValue: "default" as NSObject,
+      ValueKey.planetImageScaleFactor.rawValue: 0.33 as NSObject
     ]
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
@@ -96,7 +96,7 @@ class RCValues {
   // MARK: - Retrieving values
 
   func bool(forKey key: ValueKey) -> Bool {
-    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue ?? false
+    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue
   }
 
   func string(forKey key: ValueKey) -> String {
