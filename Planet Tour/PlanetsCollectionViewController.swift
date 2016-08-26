@@ -120,7 +120,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
   // MARK: - Navigation
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let planetDetail = segue.destination as? PlanetDetailViewController else { return }
     let selectedPlanetNumber = (collectionView?.indexPathsForSelectedItems?[0])!.row
     planetDetail.planet = SolarSystem.sharedInstance.planet(at: selectedPlanetNumber)
