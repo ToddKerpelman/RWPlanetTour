@@ -78,7 +78,7 @@ class SolarSystem {
     let largestRadius = planet(at: 4).radiusInEarths
     for i in 0..<planets.count {
       let ratio = planet(at: i).radiusInEarths / largestRadius
-      scaleFactors[i] = pow(ratio, RCValues.sharedInstance.double(forKey: ValueKey.planetImageScaleFactor))
+      scaleFactors[i] = pow(ratio, RCValues.sharedInstance.double(forKey: .planetImageScaleFactor))
     }
   }
 
