@@ -21,7 +21,6 @@
  */
 
 import UIKit
-import Firebase
 
 
 class PlanetDetailViewController: UIViewController {
@@ -42,10 +41,6 @@ class PlanetDetailViewController: UIViewController {
     super.viewDidLoad()
     updateLabelColors()
     updateLookForPlanet()
-    if let planet = self.planet {
-      FIRAnalytics.logEvent(withName: kFIREventLevelUp, parameters: [kFIRParameterLevel: 1 as NSObject])
-      FIRAnalytics.logEvent(withName: "visited_planet_details", parameters: ["planet": planet.name as NSObject])
-    }
   }
 
   func updateLabelColors() {
