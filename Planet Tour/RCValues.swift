@@ -40,8 +40,8 @@ enum ValueKey: String {
 }
 
 class RCValues {
-  static let sharedInstance = RCValues()
 
+  static let sharedInstance = RCValues()
   var loadingDoneCallback: (() -> ())?
   var fetchComplete: Bool = false
 
@@ -49,8 +49,6 @@ class RCValues {
     loadDefaultValues()
     fetchCloudValues()
   }
-
-  // MARK: - Initialization steps
 
   func loadDefaultValues() {
     let appDefaults: [String: NSObject] = [
@@ -71,44 +69,33 @@ class RCValues {
     FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
 
-  func activateDebugMode() {
-    let debugSettings = FIRRemoteConfigSettings.init(developerModeEnabled: true)
-    FIRRemoteConfig.remoteConfig().configSettings = debugSettings!
-  }
-
   func fetchCloudValues() {
-    // Don't do this in production!
-    let fetchDuration : TimeInterval = 0
+    // 1
+    // WARNING: Don't actually do this in production!
+    let fetchDuration: TimeInterval = 0
     activateDebugMode()
-    FIRRemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) {  [weak self] (status, error) in
-       guard let strongSelf = self else { return }
-      if error != nil {
+    FIRRemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) {
+      [weak self] (status, error) in
+      
+      guard error == nil else {
         print ("Uh-oh. Got an error fetching remote values \(error)")
-      } else {
-        print ("Retrieved values from the cloud!")
-        FIRRemoteConfig.remoteConfig().activateFetched()
+        return
       }
-      strongSelf.fetchComplete = true
-      strongSelf.loadingDoneCallback?()
+      
+      // 2
+      FIRRemoteConfig.remoteConfig().activateFetched()
+      print ("Retrieved values from the cloud!")
+      print ("Our app's primary color is \(FIRRemoteConfig.remoteConfig().configValue(forKey: "appPrimaryColor").stringValue)")
+      
+      // ADD THESE TWO LINES HERE!
+      self?.fetchComplete = true
+      self?.loadingDoneCallback?()
     }
   }
-
-  // MARK: - Retrieving values
-
-  func bool(forKey key: ValueKey) -> Bool {
-    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue
-  }
-
-  func string(forKey key: ValueKey) -> String {
-    return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
-  }
-
-  func double(forKey key: ValueKey) -> Double {
-    if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
-      return numberValue.doubleValue
-    } else {
-      return 0.0
-    }
+  
+  func activateDebugMode() {
+    let debugSettings = FIRRemoteConfigSettings(developerModeEnabled: true)
+    FIRRemoteConfig.remoteConfig().configSettings = debugSettings!
   }
 
   func color(forKey key: ValueKey) -> UIColor {
@@ -116,5 +103,20 @@ class RCValues {
     let convertedColor = UIColor(rgba: colorAsHexString)
     return convertedColor
   }
-
+  
+  func bool(forKey key: ValueKey) -> Bool {
+    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue
+  }
+  
+  func string(forKey key: ValueKey) -> String {
+    return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
+  }
+  
+  func double(forKey key: ValueKey) -> Double {
+    if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
+      return numberValue.doubleValue
+    } else {
+      return 0.0
+    }
+  }
 }

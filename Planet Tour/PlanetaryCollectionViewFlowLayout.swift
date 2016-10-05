@@ -24,28 +24,33 @@
  *
  */
 
-
 import UIKit
 
 class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
+  // MARK: - Properties
   let topSpacing: CGFloat = 80
   let betweenSpacing: CGFloat = 10
 
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    guard let superAttributes = super.layoutAttributesForElements(in: rect) else { return nil }
-    guard let attributesToReturn = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else { return nil }
-    for attribute in attributesToReturn {
-      if attribute.representedElementKind == nil {
-        attribute.frame = layoutAttributesForItem(at: attribute.indexPath)!.frame
-      }
+    guard let superAttributes = super.layoutAttributesForElements(in: rect),
+      let attributesToReturn = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else {
+        return nil
     }
+
+    for attribute in attributesToReturn where attribute.representedElementKind == nil {
+      guard let itemLayoutAttributes = layoutAttributesForItem(at: attribute.indexPath) else { continue }
+
+      attribute.frame = itemLayoutAttributes.frame
+    }
+
     return attributesToReturn
   }
 
   // This gives us a top-aligned horizontal layout
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     guard let superItemAttributes = super.layoutAttributesForItem(at: indexPath) else { return nil }
+
     let currentItemAttributes = superItemAttributes.copy() as! UICollectionViewLayoutAttributes
     let sectionInset = (collectionView?.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
     if indexPath.item == 0 {
@@ -54,18 +59,21 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
       currentItemAttributes.frame = frame
       return currentItemAttributes
     }
-    let previousIndexPath = IndexPath.init(item: indexPath.item - 1, section: indexPath.section)
+    
+    let previousIndexPath = IndexPath(item: indexPath.item - 1, section: indexPath.section)
     guard let previousFrame = layoutAttributesForItem(at: previousIndexPath)?.frame else { return nil }
+
     let previousFrameRightPoint = previousFrame.origin.y + previousFrame.size.height + betweenSpacing
     let previousFrameTop = previousFrame.origin.y
     let currentFrame = currentItemAttributes.frame
     let stretchedCurrentFrame =  CGRect(x: currentFrame.origin.x, y: previousFrameTop, width: currentFrame.size.width, height: collectionView!.frame.size.height)
-    if (!previousFrame.intersects(stretchedCurrentFrame)) {
+    if !previousFrame.intersects(stretchedCurrentFrame) {
       var frame = currentItemAttributes.frame
       frame.origin.y = sectionInset.top + topSpacing
       currentItemAttributes.frame = frame
       return currentItemAttributes
     }
+
     var frame = currentItemAttributes.frame
     frame.origin.y = previousFrameRightPoint
     currentItemAttributes.frame = frame
@@ -76,6 +84,7 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
   // planet on the center of the screen
   override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
     guard let cv = self.collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
+
     let cvBounds = cv.bounds
     let halfWidth = cvBounds.size.width * 0.5;
     let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth;
@@ -85,6 +94,7 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
       }
       return CGPoint(x: closestAttribute!.center.x - halfWidth, y: proposedContentOffset.y)
     }
+
     return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
   }
 
@@ -96,5 +106,4 @@ class PlanetaryCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
     return closestSoFar
   }
-
 }

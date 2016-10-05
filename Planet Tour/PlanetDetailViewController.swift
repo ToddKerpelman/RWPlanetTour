@@ -22,9 +22,9 @@
 
 import UIKit
 
-
 class PlanetDetailViewController: UIViewController {
 
+  // MARK: - IBOutlets
   @IBOutlet weak var planetNameLabel: UILabel!
   @IBOutlet weak var planetImage: UIImageView!
   @IBOutlet weak var yearLengthLabel: UILabel!
@@ -35,28 +35,35 @@ class PlanetDetailViewController: UIViewController {
   @IBOutlet weak var funFactLabel: UILabel!
   @IBOutlet weak var imageCreditLabel: UILabel!
 
+  // MARK: - Properties
   var planet: Planet?
 
+  // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     updateLabelColors()
     updateLookForPlanet()
   }
+}
+
+// MARK: - FilePrivate
+fileprivate extension PlanetDetailViewController {
 
   func updateLabelColors() {
-    let titlesToRecolor: [UILabel] = [yearTitle, massTitle, funFactTitle]
-    for nextLabel in titlesToRecolor {
+    for case let nextLabel? in [yearTitle, massTitle, funFactTitle] {
       nextLabel.textColor = RCValues.sharedInstance.color(forKey: .appPrimaryColor)
     }
-    let labelsToRecolor: [UILabel] = [yearLengthLabel, massLabel, funFactLabel]
-    for nextLabel in labelsToRecolor {
+
+    for case let nextLabel? in [yearLengthLabel, massLabel, funFactLabel] {
       nextLabel.textColor = RCValues.sharedInstance.color(forKey: .detailInfoColor)
     }
+
     planetNameLabel.textColor = RCValues.sharedInstance.color(forKey: .detailTitleColor)
   }
 
   func updateLookForPlanet() {
-    guard let planet = self.planet else { return }
+    guard let planet = planet else { return }
+
     planetNameLabel.text = planet.name
     planetImage.image = planet.image
     yearLengthLabel.text = String(planet.yearInDays)
@@ -64,5 +71,4 @@ class PlanetDetailViewController: UIViewController {
     funFactLabel.text = planet.funFact
     imageCreditLabel.text = "Image credit: \(planet.imageCredit)"
   }
-
 }

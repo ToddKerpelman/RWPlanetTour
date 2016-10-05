@@ -10,8 +10,6 @@
 		495915E81D00F68300CDFD8B /* CrossfadeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */; };
 		496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496480681CF62CB100AB23CD /* ContainerViewController.swift */; };
 		4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */; };
-		497A4E271CFE54BB00D3DD40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 497A4E261CFE54BB00D3DD40 /* GoogleService-Info.plist */; };
-		497A4E291CFE559600D3DD40 /* RCValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A4E281CFE559600D3DD40 /* RCValues.swift */; };
 		497FDCC11CFE7A020016441E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FDCC01CFE7A020016441E /* WaitingViewController.swift */; };
 		49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F201CF3C4320064A124 /* AppDelegate.swift */; };
 		49923F261CF3C4320064A124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
@@ -27,15 +25,16 @@
 		49C83E6E1CF89A1F00B80E52 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C83E6D1CF89A1F00B80E52 /* UIColorExtension.swift */; };
 		49C83E701CF89A6700B80E52 /* Credits in Resources */ = {isa = PBXBuildFile; fileRef = 49C83E6F1CF89A6700B80E52 /* Credits */; };
 		49C83E741CF8B29C00B80E52 /* Planets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C83E731CF8B29C00B80E52 /* Planets.xcassets */; };
-		95C3EE796C465161C389DD6C /* Pods_Planet_Tour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E942ABA0EDA9073FC28BB978 /* Pods_Planet_Tour.framework */; };
+		84CC153051301E97B6691396 /* Pods_Planet_Tour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC9751B88C0E54E91A7456 /* Pods_Planet_Tour.framework */; };
+		950B479A1D9562860032EC2D /* RCValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950B47991D9562860032EC2D /* RCValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30BE66CC530007AE17AAE7CC /* Pods-Planet Tour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planet Tour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour.debug.xcconfig"; sourceTree = "<group>"; };
+		3BAC9751B88C0E54E91A7456 /* Pods_Planet_Tour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Planet_Tour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossfadeSegue.swift; sourceTree = "<group>"; };
 		496480681CF62CB100AB23CD /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNewsletterViewController.swift; sourceTree = "<group>"; };
-		497A4E261CFE54BB00D3DD40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		497A4E281CFE559600D3DD40 /* RCValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCValues.swift; sourceTree = "<group>"; };
 		497FDCC01CFE7A020016441E /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		49923F1D1CF3C4310064A124 /* Planet Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planet Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49923F201CF3C4320064A124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +52,9 @@
 		49C83E6D1CF89A1F00B80E52 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		49C83E6F1CF89A6700B80E52 /* Credits */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Credits; path = "Planet Tour/Credits"; sourceTree = "<group>"; };
 		49C83E731CF8B29C00B80E52 /* Planets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Planets.xcassets; sourceTree = "<group>"; };
-		64E0CFFAA1F385D88A03CA78 /* Pods-Planet Tour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planet Tour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour.debug.xcconfig"; sourceTree = "<group>"; };
-		B0547750E15CC7DF3CA95729 /* Pods-Planet Tour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planet Tour.release.xcconfig"; path = "Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour.release.xcconfig"; sourceTree = "<group>"; };
-		E942ABA0EDA9073FC28BB978 /* Pods_Planet_Tour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Planet_Tour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		950B47991D9562860032EC2D /* RCValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCValues.swift; sourceTree = "<group>"; };
+		950B479B1D95647A0032EC2D /* Planet Tour.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Planet Tour.entitlements"; sourceTree = "<group>"; };
+		AC61A65D4FC8C0C3C39E1384 /* Pods-Planet Tour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planet Tour.release.xcconfig"; path = "Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,23 +62,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C3EE796C465161C389DD6C /* Pods_Planet_Tour.framework in Frameworks */,
+				84CC153051301E97B6691396 /* Pods_Planet_Tour.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A65FD65F5B7454F52BEF796 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC9751B88C0E54E91A7456 /* Pods_Planet_Tour.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		457B9AF0CC6A64F62DA425D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30BE66CC530007AE17AAE7CC /* Pods-Planet Tour.debug.xcconfig */,
+				AC61A65D4FC8C0C3C39E1384 /* Pods-Planet Tour.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		49923F141CF3C4310064A124 = {
 			isa = PBXGroup;
 			children = (
 				49C83E6F1CF89A6700B80E52 /* Credits */,
 				49923F1F1CF3C4320064A124 /* Planet Tour */,
 				49923F1E1CF3C4310064A124 /* Products */,
-				B5BD2C23C77FBC8F6DF988FF /* Pods */,
-				65CB7CA6A9D272AA7B1458A2 /* Frameworks */,
+				457B9AF0CC6A64F62DA425D4 /* Pods */,
+				3A65FD65F5B7454F52BEF796 /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		49923F1E1CF3C4310064A124 /* Products */ = {
 			isa = PBXGroup;
@@ -92,6 +110,7 @@
 		49923F1F1CF3C4320064A124 /* Planet Tour */ = {
 			isa = PBXGroup;
 			children = (
+				950B479B1D95647A0032EC2D /* Planet Tour.entitlements */,
 				49C83E751CF8B41C00B80E52 /* ViewControllers */,
 				49C83E761CF8C00200B80E52 /* Views */,
 				49C83E6C1CF899FD00B80E52 /* Utilities */,
@@ -101,7 +120,6 @@
 				49923F271CF3C4320064A124 /* Assets.xcassets */,
 				49C83E731CF8B29C00B80E52 /* Planets.xcassets */,
 				49923F291CF3C4320064A124 /* LaunchScreen.storyboard */,
-				497A4E261CFE54BB00D3DD40 /* GoogleService-Info.plist */,
 				49923F2C1CF3C4320064A124 /* Info.plist */,
 			);
 			path = "Planet Tour";
@@ -120,9 +138,9 @@
 			isa = PBXGroup;
 			children = (
 				49C83E6D1CF89A1F00B80E52 /* UIColorExtension.swift */,
-				497A4E281CFE559600D3DD40 /* RCValues.swift */,
 				495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */,
 				49A83DD81D2E47000082ADA8 /* PlanetaryCollectionViewFlowLayout.swift */,
+				950B47991D9562860032EC2D /* RCValues.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -148,23 +166,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		65CB7CA6A9D272AA7B1458A2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E942ABA0EDA9073FC28BB978 /* Pods_Planet_Tour.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B5BD2C23C77FBC8F6DF988FF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				64E0CFFAA1F385D88A03CA78 /* Pods-Planet Tour.debug.xcconfig */,
-				B0547750E15CC7DF3CA95729 /* Pods-Planet Tour.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,12 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49923F2F1CF3C4320064A124 /* Build configuration list for PBXNativeTarget "Planet Tour" */;
 			buildPhases = (
-				74808CB305C7BADDCCC5D7D3 /* 📦 Check Pods Manifest.lock */,
+				B791D168266BE8CAFDFF23F6 /* Check Pods Manifest.lock */,
 				49923F191CF3C4310064A124 /* Sources */,
 				49923F1A1CF3C4310064A124 /* Frameworks */,
 				49923F1B1CF3C4310064A124 /* Resources */,
-				7F033F73BDA527B29513DE88 /* 📦 Embed Pods Frameworks */,
-				1C0CB9A5E9864E244952E6E3 /* 📦 Copy Pods Resources */,
+				E7B9F2ABE1472845D486D870 /* Embed Pods Frameworks */,
+				8FF10697774EC82C861B2767 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +202,11 @@
 					49923F1C1CF3C4310064A124 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -232,21 +238,20 @@
 				49C83E741CF8B29C00B80E52 /* Planets.xcassets in Resources */,
 				49923F281CF3C4320064A124 /* Assets.xcassets in Resources */,
 				49923F261CF3C4320064A124 /* Main.storyboard in Resources */,
-				497A4E271CFE54BB00D3DD40 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C0CB9A5E9864E244952E6E3 /* 📦 Copy Pods Resources */ = {
+		8FF10697774EC82C861B2767 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +259,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74808CB305C7BADDCCC5D7D3 /* 📦 Check Pods Manifest.lock */ = {
+		B791D168266BE8CAFDFF23F6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,14 +274,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7F033F73BDA527B29513DE88 /* 📦 Embed Pods Frameworks */ = {
+		E7B9F2ABE1472845D486D870 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +307,7 @@
 				49923F381CF3C6720064A124 /* SolarSystem.swift in Sources */,
 				49923F4D1CF4E8710064A124 /* PlanetDetailViewController.swift in Sources */,
 				499C8A281D122C0E00742186 /* MiniMap.swift in Sources */,
-				497A4E291CFE559600D3DD40 /* RCValues.swift in Sources */,
+				950B479A1D9562860032EC2D /* RCValues.swift in Sources */,
 				49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */,
 				495915E81D00F68300CDFD8B /* CrossfadeSegue.swift in Sources */,
 			);
@@ -367,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -406,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -415,10 +420,13 @@
 		};
 		49923F301CF3C4320064A124 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64E0CFFAA1F385D88A03CA78 /* Pods-Planet Tour.debug.xcconfig */;
+			baseConfigurationReference = 30BE66CC530007AE17AAE7CC /* Pods-Planet Tour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Planet Tour/Planet Tour.entitlements";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Planet Tour/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Planet-Tour";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,10 +436,13 @@
 		};
 		49923F311CF3C4320064A124 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0547750E15CC7DF3CA95729 /* Pods-Planet Tour.release.xcconfig */;
+			baseConfigurationReference = AC61A65D4FC8C0C3C39E1384 /* Pods-Planet Tour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Planet Tour/Planet Tour.entitlements";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Planet Tour/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Planet-Tour";
 				PRODUCT_NAME = "$(TARGET_NAME)";
