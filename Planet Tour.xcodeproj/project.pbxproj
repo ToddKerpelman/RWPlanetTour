@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494756501DA712C300FC5FA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
 		495915E81D00F68300CDFD8B /* CrossfadeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495915E71D00F68300CDFD8B /* CrossfadeSegue.swift */; };
 		496480691CF62CB100AB23CD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496480681CF62CB100AB23CD /* ContainerViewController.swift */; };
 		4964806B1CF62D1C00AB23CD /* GetNewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964806A1CF62D1C00AB23CD /* GetNewsletterViewController.swift */; };
 		497FDCC11CFE7A020016441E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FDCC01CFE7A020016441E /* WaitingViewController.swift */; };
 		49923F211CF3C4320064A124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F201CF3C4320064A124 /* AppDelegate.swift */; };
-		49923F261CF3C4320064A124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F241CF3C4320064A124 /* Main.storyboard */; };
 		49923F281CF3C4320064A124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49923F271CF3C4320064A124 /* Assets.xcassets */; };
 		49923F2B1CF3C4320064A124 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49923F291CF3C4320064A124 /* LaunchScreen.storyboard */; };
 		49923F331CF3C4C60064A124 /* PlanetsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F321CF3C4C50064A124 /* PlanetsCollectionViewController.swift */; };
@@ -22,6 +22,7 @@
 		49923F4D1CF4E8710064A124 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49923F4C1CF4E8710064A124 /* PlanetDetailViewController.swift */; };
 		499C8A281D122C0E00742186 /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C8A271D122C0E00742186 /* MiniMap.swift */; };
 		49A83DD91D2E47000082ADA8 /* PlanetaryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A83DD81D2E47000082ADA8 /* PlanetaryCollectionViewFlowLayout.swift */; };
+		49C19DFD1DA7091100F6181C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49C19DFF1DA7091100F6181C /* Localizable.strings */; };
 		49C83E6E1CF89A1F00B80E52 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C83E6D1CF89A1F00B80E52 /* UIColorExtension.swift */; };
 		49C83E701CF89A6700B80E52 /* Credits in Resources */ = {isa = PBXBuildFile; fileRef = 49C83E6F1CF89A6700B80E52 /* Credits */; };
 		49C83E741CF8B29C00B80E52 /* Planets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C83E731CF8B29C00B80E52 /* Planets.xcassets */; };
@@ -49,6 +50,9 @@
 		49923F4C1CF4E8710064A124 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		499C8A271D122C0E00742186 /* MiniMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMap.swift; sourceTree = "<group>"; };
 		49A83DD81D2E47000082ADA8 /* PlanetaryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetaryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		49C19DFC1DA7083F00F6181C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		49C19DFE1DA7091100F6181C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		49C19E011DA7099700F6181C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49C83E6D1CF89A1F00B80E52 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		49C83E6F1CF89A6700B80E52 /* Credits */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Credits; path = "Planet Tour/Credits"; sourceTree = "<group>"; };
 		49C83E731CF8B29C00B80E52 /* Planets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Planets.xcassets; sourceTree = "<group>"; };
@@ -110,15 +114,13 @@
 		49923F1F1CF3C4320064A124 /* Planet Tour */ = {
 			isa = PBXGroup;
 			children = (
-				950B479B1D95647A0032EC2D /* Planet Tour.entitlements */,
+				49BACAF81DA6F4F0006E9F28 /* Resources */,
 				49C83E751CF8B41C00B80E52 /* ViewControllers */,
 				49C83E761CF8C00200B80E52 /* Views */,
 				49C83E6C1CF899FD00B80E52 /* Utilities */,
 				49923F341CF3C4DC0064A124 /* Models */,
 				49923F201CF3C4320064A124 /* AppDelegate.swift */,
 				49923F241CF3C4320064A124 /* Main.storyboard */,
-				49923F271CF3C4320064A124 /* Assets.xcassets */,
-				49C83E731CF8B29C00B80E52 /* Planets.xcassets */,
 				49923F291CF3C4320064A124 /* LaunchScreen.storyboard */,
 				49923F2C1CF3C4320064A124 /* Info.plist */,
 			);
@@ -132,6 +134,17 @@
 				49923F371CF3C6720064A124 /* SolarSystem.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		49BACAF81DA6F4F0006E9F28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49923F271CF3C4320064A124 /* Assets.xcassets */,
+				49C83E731CF8B29C00B80E52 /* Planets.xcassets */,
+				950B479B1D95647A0032EC2D /* Planet Tour.entitlements */,
+				49C19DFF1DA7091100F6181C /* Localizable.strings */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		49C83E6C1CF899FD00B80E52 /* Utilities */ = {
@@ -217,6 +230,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 49923F141CF3C4310064A124;
 			productRefGroup = 49923F1E1CF3C4310064A124 /* Products */;
@@ -233,11 +247,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494756501DA712C300FC5FA0 /* Main.storyboard in Resources */,
 				49C83E701CF89A6700B80E52 /* Credits in Resources */,
 				49923F2B1CF3C4320064A124 /* LaunchScreen.storyboard in Resources */,
 				49C83E741CF8B29C00B80E52 /* Planets.xcassets in Resources */,
+				49C19DFD1DA7091100F6181C /* Localizable.strings in Resources */,
 				49923F281CF3C4320064A124 /* Assets.xcassets in Resources */,
-				49923F261CF3C4320064A124 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +343,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				49923F2A1CF3C4320064A124 /* Base */,
+				49C19DFC1DA7083F00F6181C /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		49C19DFF1DA7091100F6181C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C19DFE1DA7091100F6181C /* en */,
+				49C19E011DA7099700F6181C /* nl */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -339,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -384,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -426,7 +453,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Planet Tour/Planet Tour.entitlements";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Planet Tour/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Planet-Tour";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,7 +469,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Planet Tour/Planet Tour.entitlements";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Planet Tour/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Planet-Tour";
 				PRODUCT_NAME = "$(TARGET_NAME)";

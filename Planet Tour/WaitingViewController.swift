@@ -24,10 +24,12 @@ import UIKit
 
 class WaitingViewController: UIViewController {
 
+  @IBOutlet weak var justAMomentLabel: UILabel!
+
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    justAMomentLabel.text = NSLocalizedString("Just a moment...", comment: "")
     if RCValues.sharedInstance.fetchComplete {
       startAppForReal()
     }

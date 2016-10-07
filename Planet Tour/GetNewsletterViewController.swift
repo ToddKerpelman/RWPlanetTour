@@ -55,6 +55,8 @@ extension GetNewsletterViewController {
 fileprivate extension GetNewsletterViewController {
 
   func updateText() {
+    thankYouLabel.text = NSLocalizedString("Thanks! Be on the lookout for your next issue!", comment: "")
+    emailTextField.placeholder = NSLocalizedString("Your email", comment: "")
     instructionLabel.text = RCValues.sharedInstance.string(forKey: .subscribeVCText)
     submitButton.setTitle(RCValues.sharedInstance.string(forKey: .subscribeVCButton), for: .normal)
   }

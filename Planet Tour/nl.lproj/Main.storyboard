@@ -13,7 +13,7 @@
         <scene sceneID="VEZ-0C-mXd">
             <objects>
                 <collectionViewController automaticallyAdjustsScrollViewInsets="NO" id="6bv-LL-yH0" customClass="PlanetsCollectionViewController" customModule="Planet_Tour" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" id="0em-Xy-n8G">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" id="0em-Xy-n8G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pbu-79-LSu" customClass="PlanetaryCollectionViewFlowLayout" customModule="Planet_Tour" customModuleProvider="target">
@@ -115,7 +115,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="24q-rp-2zn"/>
                     <connections>
-                        <outlet property="justAMomentLabel" destination="FZ4-On-D6v" id="LKf-8c-CAG"/>
                         <segue destination="aU9-RF-ZPZ" kind="custom" identifier="loadingDoneSegue" customClass="CrossfadeSegue" customModule="Planet_Tour" customModuleProvider="target" id="KaX-Ep-SRd"/>
                     </connections>
                 </viewController>
