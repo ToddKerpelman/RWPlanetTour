@@ -71,6 +71,6 @@ fileprivate extension PlanetDetailViewController {
     yearLengthLabel.text = String(planet.yearInDays)
     massLabel.text = String(planet.massInEarths)
     funFactLabel.text = planet.funFact
-    imageCreditLabel.text = "Image credit: \(planet.imageCredit)"
+    imageCreditLabel.text = NSLocalizedString("Image credit:", comment: "") + " \(planet.imageCredit)"
   }
 }
