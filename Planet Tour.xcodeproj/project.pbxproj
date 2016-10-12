@@ -50,6 +50,8 @@
 		49923F4C1CF4E8710064A124 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		499C8A271D122C0E00742186 /* MiniMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMap.swift; sourceTree = "<group>"; };
 		49A83DD81D2E47000082ADA8 /* PlanetaryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetaryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		49BF3BA71DAEBA2F0076C511 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		49BF3BA81DAEBA2F0076C511 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49C19DFC1DA7083F00F6181C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		49C19DFE1DA7091100F6181C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49C19E011DA7099700F6181C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				en,
 				Base,
 				nl,
+				ro,
 			);
 			mainGroup = 49923F141CF3C4310064A124;
 			productRefGroup = 49923F1E1CF3C4310064A124 /* Products */;
@@ -344,6 +347,7 @@
 			children = (
 				49923F2A1CF3C4320064A124 /* Base */,
 				49C19DFC1DA7083F00F6181C /* nl */,
+				49BF3BA71DAEBA2F0076C511 /* ro */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 			children = (
 				49C19DFE1DA7091100F6181C /* en */,
 				49C19E011DA7099700F6181C /* nl */,
+				49BF3BA81DAEBA2F0076C511 /* ro */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
