@@ -59,7 +59,7 @@ class RCValues {
       ValueKey.detailTitleColor.rawValue: "#FFFFFF" as NSObject,
       ValueKey.detailInfoColor.rawValue: "#CCCCCC" as NSObject,
       ValueKey.subscribeBannerText.rawValue: "Like Planet Tour?" as NSObject,
-      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!" as NSObject,
+      ValueKey.subscribeBannerButton.rawValue: "Get the newsletter!"as NSObject,
       ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!" as NSObject,
       ValueKey.subscribeVCButton.rawValue: "Subscribe" as NSObject,
       ValueKey.shouldWeIncludePluto.rawValue: false as NSObject,
@@ -84,6 +84,7 @@ class RCValues {
       
       // 2
       FIRRemoteConfig.remoteConfig().activateFetched()
+      self?.recordExperimentGroups()
       print ("Retrieved values from the cloud!")
       print ("Our app's primary color is \(FIRRemoteConfig.remoteConfig().configValue(forKey: "appPrimaryColor").stringValue)")
       
@@ -96,6 +97,11 @@ class RCValues {
   func activateDebugMode() {
     let debugSettings = FIRRemoteConfigSettings(developerModeEnabled: true)
     FIRRemoteConfig.remoteConfig().configSettings = debugSettings!
+  }
+
+  func recordExperimentGroups() {
+    let myExperimentGroup = FIRRemoteConfig.remoteConfig()["experimentGroup"].stringValue ?? "none"
+    FIRAnalytics.setUserPropertyString(myExperimentGroup, forName: "experimentGroup")
   }
 
   func color(forKey key: ValueKey) -> UIColor {

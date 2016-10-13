@@ -21,6 +21,7 @@
  */
 
 import UIKit
+import Firebase
 
 class ContainerViewController: UIViewController {
 
@@ -32,13 +33,15 @@ class ContainerViewController: UIViewController {
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+
     updateBanner()
     self.title = NSLocalizedString("Planet Tour", comment: "")
+    FIRAnalytics.logEvent(withName: "mainPageLoaded", parameters: nil)
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    
     updateNavigationColors()
   }
 }
