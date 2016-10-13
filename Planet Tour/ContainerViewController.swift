@@ -29,6 +29,7 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var bannerView: UIView!
   @IBOutlet weak var bannerLabel: UILabel!
   @IBOutlet weak var getNewsletterButton: UIButton!
+  fileprivate let takenSurveyKey = "takenSurvey"
 
   // MARK: - View Life Cycle
   override func viewDidLoad() {
@@ -42,12 +43,31 @@ class ContainerViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    if (!UserDefaults.standard.bool(forKey: takenSurveyKey)) {
+      runUserSurvey()
+    }
     updateNavigationColors()
   }
+
 }
 
 // MARK: - FilePrivate
 fileprivate extension ContainerViewController {
+
+  func runUserSurvey() {
+    let alertView = UIAlertController(title: "User survey", message: "How do you feel about small, remote, cold rocks in space?", preferredStyle: .actionSheet)
+    let fanOfPluto = UIAlertAction(title: "They're planets, too!", style: .default) { (action) in
+      FIRAnalytics.setUserPropertyString("true", forName: "likesSmallRocks")
+    }
+    let notAFan = UIAlertAction(title: "Not worth my time", style: .default) { (action) in
+      FIRAnalytics.setUserPropertyString("false", forName: "likesSmallRocks")
+    }
+    alertView.addAction(fanOfPluto)
+    alertView.addAction(notAFan)
+    navigationController?.present(alertView, animated: true, completion: nil)
+    UserDefaults.standard.set(true, forKey: takenSurveyKey)
+  }
+
 
   func updateNavigationColors() {
     navigationController?.navigationBar.tintColor = RCValues.sharedInstance.color(forKey: .navTintColor)
