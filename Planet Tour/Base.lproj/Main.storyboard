@@ -137,7 +137,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-Jo-Z7O" userLabel="Mini Banner">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like Planet Tour?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qh-bG-IhY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like Planet Tour?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="9qh-bG-IhY">
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -157,6 +157,7 @@
                                 <constraints>
                                     <constraint firstItem="9qh-bG-IhY" firstAttribute="leading" secondItem="bpd-Jo-Z7O" secondAttribute="leading" constant="8" id="8fu-WG-luj"/>
                                     <constraint firstAttribute="trailing" secondItem="Oyz-dw-7Eb" secondAttribute="trailing" constant="8" id="YC5-gY-uQG"/>
+                                    <constraint firstItem="Oyz-dw-7Eb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9qh-bG-IhY" secondAttribute="trailing" constant="10" id="amN-yc-coc"/>
                                     <constraint firstItem="9qh-bG-IhY" firstAttribute="centerY" secondItem="bpd-Jo-Z7O" secondAttribute="centerY" id="fQf-No-sci"/>
                                     <constraint firstAttribute="height" constant="35" id="ofz-Jw-ZFT"/>
                                     <constraint firstItem="Oyz-dw-7Eb" firstAttribute="centerY" secondItem="bpd-Jo-Z7O" secondAttribute="centerY" id="s8Z-g8-mTx"/>
