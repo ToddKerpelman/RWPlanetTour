@@ -79,7 +79,9 @@ class PlanetsCollectionViewController: UICollectionViewController {
 extension PlanetsCollectionViewController {
 
   func runUserSurvey() {
-    let alertView = UIAlertController(title: "User survey", message: "How do you feel about small, remote, cold rocks in space?", preferredStyle: .actionSheet)
+    let alertView = UIAlertController(title: "User survey",
+                                      message: "How do you feel about small, remote, cold rocks in space?",
+                                      preferredStyle: .actionSheet)
     let fanOfPluto = UIAlertAction(title: "They're planets, too!", style: .default) { (action) in
       FIRAnalytics.setUserPropertyString("true", forName: "likesSmallRocks")
     }
