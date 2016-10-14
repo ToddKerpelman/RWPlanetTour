@@ -21,10 +21,12 @@
  */
 
 import UIKit
+import Firebase
 
 class PlanetsCollectionViewController: UICollectionViewController {
 
   // MARK: - Properties
+  fileprivate let takenSurveyKey = "takenSurvey"
   fileprivate let reuseIdentifier = "PlanetCell"
   fileprivate let sectionInsets = UIEdgeInsets(top: 10, left: 80, bottom: 10, right: 70)
   var starBackground: UIImageView!
@@ -41,6 +43,8 @@ class PlanetsCollectionViewController: UICollectionViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
+    let retakeSurveyButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(runUserSurvey))
+    parent?.navigationItem.rightBarButtonItem = retakeSurveyButton
     customizeNavigationBar()
   }
 
@@ -50,7 +54,11 @@ class PlanetsCollectionViewController: UICollectionViewController {
     removeWaitingViewController()
     addFancyBackground()
     addMiniMap()
+    if (!UserDefaults.standard.bool(forKey: takenSurveyKey)) {
+      runUserSurvey()
+    }
   }
+
 
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,6 +77,20 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
 // MARK: - Internal
 extension PlanetsCollectionViewController {
+
+  func runUserSurvey() {
+    let alertView = UIAlertController(title: "User survey", message: "How do you feel about small, remote, cold rocks in space?", preferredStyle: .actionSheet)
+    let fanOfPluto = UIAlertAction(title: "They're planets, too!", style: .default) { (action) in
+      FIRAnalytics.setUserPropertyString("true", forName: "likesSmallRocks")
+    }
+    let notAFan = UIAlertAction(title: "Not worth my time", style: .default) { (action) in
+      FIRAnalytics.setUserPropertyString("false", forName: "likesSmallRocks")
+    }
+    alertView.addAction(fanOfPluto)
+    alertView.addAction(notAFan)
+    navigationController?.present(alertView, animated: true, completion: nil)
+    UserDefaults.standard.set(true, forKey: takenSurveyKey)
+  }
 
   func addFancyBackground() {
     guard starBackground == nil,
