@@ -70,7 +70,6 @@ class RCValues {
   }
 
   func fetchCloudValues() {
-    // 1
     // WARNING: Don't actually do this in production!
     let fetchDuration: TimeInterval = 0
     activateDebugMode()
@@ -82,12 +81,8 @@ class RCValues {
         return
       }
       
-      // 2
       FIRRemoteConfig.remoteConfig().activateFetched()
       print ("Retrieved values from the cloud!")
-      print ("Our app's primary color is \(FIRRemoteConfig.remoteConfig().configValue(forKey: "appPrimaryColor").stringValue)")
-      
-      // ADD THESE TWO LINES HERE!
       self?.fetchComplete = true
       self?.loadingDoneCallback?()
     }
