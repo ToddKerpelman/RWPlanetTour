@@ -33,7 +33,6 @@ class ContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     updateBanner()
-    self.title = NSLocalizedString("Planet Tour", comment: "")
   }
 
   override func viewWillAppear(_ animated: Bool) {
