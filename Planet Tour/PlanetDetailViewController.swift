@@ -63,14 +63,11 @@ fileprivate extension PlanetDetailViewController {
 
   func updateLookForPlanet() {
     guard let planet = planet else { return }
-    yearTitle.text = NSLocalizedString("Year (in Earth days)", comment: "")
-    funFactTitle.text = NSLocalizedString("Fun fact:", comment: "")
-    massTitle.text = NSLocalizedString("Mass (in # of Earths)", comment: "")
     planetNameLabel.text = planet.name
     planetImage.image = planet.image
     yearLengthLabel.text = String(planet.yearInDays)
     massLabel.text = String(planet.massInEarths)
     funFactLabel.text = planet.funFact
-    imageCreditLabel.text = NSLocalizedString("Image credit:", comment: "") + " \(planet.imageCredit)"
+    imageCreditLabel.text = "Image credit: \(planet.imageCredit)"
   }
 }

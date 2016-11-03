@@ -36,7 +36,6 @@ class ContainerViewController: UIViewController {
     super.viewDidLoad()
 
     updateBanner()
-    self.title = NSLocalizedString("Planet Tour", comment: "")
     FIRAnalytics.logEvent(withName: "mainPageLoaded", parameters: nil)
   }
 
