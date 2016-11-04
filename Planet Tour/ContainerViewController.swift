@@ -29,7 +29,6 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var bannerView: UIView!
   @IBOutlet weak var bannerLabel: UILabel!
   @IBOutlet weak var getNewsletterButton: UIButton!
-  fileprivate let takenSurveyKey = "takenSurvey"
 
   // MARK: - View Life Cycle
   override func viewDidLoad() {
@@ -41,7 +40,7 @@ class ContainerViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
+
     updateNavigationColors()
   }
 

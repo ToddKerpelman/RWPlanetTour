@@ -59,7 +59,7 @@ class RCValues {
       ValueKey.detailTitleColor.rawValue: "#FFFFFF" as NSObject,
       ValueKey.detailInfoColor.rawValue: "#CCCCCC" as NSObject,
       ValueKey.subscribeBannerText.rawValue: "Like Planet Tour?" as NSObject,
-      ValueKey.subscribeBannerButton.rawValue: "Get the newsletter!" as NSObject,
+      ValueKey.subscribeBannerButton.rawValue: "Get our newsletter!" as NSObject,
       ValueKey.subscribeVCText.rawValue: "Want more astronomy facts? Sign up for our newsletter!" as NSObject,
       ValueKey.subscribeVCButton.rawValue: "Subscribe" as NSObject,
       ValueKey.shouldWeIncludePluto.rawValue: false as NSObject,
