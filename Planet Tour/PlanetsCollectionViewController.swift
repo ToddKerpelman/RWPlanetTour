@@ -123,8 +123,8 @@ extension PlanetsCollectionViewController {
 
     navBar.barTintColor = RCValues.sharedInstance.color(forKey: .navBarBackground)
     let targetFont = UIFont(name: "Avenir-black", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)
-    navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white,
-                                  NSFontAttributeName : targetFont]
+    navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
+                                  NSAttributedStringKey.font : targetFont]
   }
 
   func removeWaitingViewController() {
