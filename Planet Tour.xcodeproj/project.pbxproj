@@ -181,12 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49923F2F1CF3C4320064A124 /* Build configuration list for PBXNativeTarget "Planet Tour" */;
 			buildPhases = (
-				F9DA1BFF428306D5C1BFD481 /* 📦 Check Pods Manifest.lock */,
+				F9DA1BFF428306D5C1BFD481 /* [CP] Check Pods Manifest.lock */,
 				49923F191CF3C4310064A124 /* Sources */,
 				49923F1A1CF3C4310064A124 /* Frameworks */,
 				49923F1B1CF3C4310064A124 /* Resources */,
-				6CC4746DAB8AFDF81F723A88 /* 📦 Embed Pods Frameworks */,
-				D47A52C14AD80C3D3B033347 /* 📦 Copy Pods Resources */,
+				6CC4746DAB8AFDF81F723A88 /* [CP] Embed Pods Frameworks */,
+				D47A52C14AD80C3D3B033347 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,29 +251,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6CC4746DAB8AFDF81F723A88 /* 📦 Embed Pods Frameworks */ = {
+		6CC4746DAB8AFDF81F723A88 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D47A52C14AD80C3D3B033347 /* 📦 Copy Pods Resources */ = {
+		D47A52C14AD80C3D3B033347 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,19 +288,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Planet Tour/Pods-Planet Tour-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9DA1BFF428306D5C1BFD481 /* 📦 Check Pods Manifest.lock */ = {
+		F9DA1BFF428306D5C1BFD481 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Planet Tour-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
