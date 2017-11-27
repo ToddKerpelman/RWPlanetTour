@@ -33,7 +33,8 @@ import UIKit
 public enum UIColorInputError : Error {
   case missingHashMarkAsPrefix,
   unableToScanHexValue,
-  mismatchedHexStringLength
+  mismatchedHexStringLength,
+  unableToOutputHexStringForWideDisplayColor
 }
 
 extension UIColor {
@@ -104,14 +105,14 @@ extension UIColor {
       throw UIColorInputError.missingHashMarkAsPrefix
     }
 
-    let hexString: String = rgba.substring(from: rgba.characters.index(rgba.startIndex, offsetBy: 1))
+    let hexString: String = String(rgba[String.Index.init(encodedOffset: 1)...])
     var hexValue:  UInt32 = 0
 
     guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
-        throw UIColorInputError.unableToScanHexValue
+      throw UIColorInputError.unableToScanHexValue
     }
 
-    switch (hexString.characters.count) {
+    switch (hexString.count) {
     case 3:
       self.init(hex3: UInt16(hexValue))
     case 4:
@@ -130,7 +131,7 @@ extension UIColor {
 
    - parameter rgba: String value.
    */
-  public convenience init(rgba: String, defaultColor: UIColor = UIColor.clear) {
+  public convenience init(_ rgba: String, defaultColor: UIColor = UIColor.clear) {
     guard let color = try? UIColor(rgba_throws: rgba) else {
       self.init(cgColor: defaultColor.cgColor)
       return
@@ -139,16 +140,20 @@ extension UIColor {
   }
 
   /**
-   Hex string of a UIColor instance.
+   Hex string of a UIColor instance, throws error.
 
-   - parameter rgba: Whether the alpha should be included.
+   - parameter includeAlpha: Whether the alpha should be included.
    */
-  public func hexString(_ includeAlpha: Bool) -> String {
+  public func hexStringThrows(_ includeAlpha: Bool = true) throws -> String  {
     var r: CGFloat = 0
     var g: CGFloat = 0
     var b: CGFloat = 0
     var a: CGFloat = 0
     self.getRed(&r, green: &g, blue: &b, alpha: &a)
+
+    guard r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1 else {
+      throw UIColorInputError.unableToOutputHexStringForWideDisplayColor
+    }
 
     if (includeAlpha) {
       return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
@@ -157,11 +162,36 @@ extension UIColor {
     }
   }
 
-  open override var description: String {
-    return self.hexString(true)
-  }
+  /**
+   Hex string of a UIColor instance, fails to empty string.
 
-  open override var debugDescription: String {
-    return self.hexString(true)
+   - parameter includeAlpha: Whether the alpha should be included.
+   */
+  public func hexString(_ includeAlpha: Bool = true) -> String  {
+    guard let hexString = try? hexStringThrows(includeAlpha) else {
+      return ""
+    }
+    return hexString
+  }
+}
+
+extension String {
+  /**
+   Convert argb string to rgba string.
+   */
+  public func argb2rgba() -> String? {
+    guard self.hasPrefix("#") else {
+      return nil
+    }
+
+    let hexString: String = String(self[self.index(self.startIndex, offsetBy: 1)...])
+    switch hexString.count {
+    case 4:
+      return "#\(String(hexString[self.index(self.startIndex, offsetBy: 1)...]))\(String(hexString[..<self.index(self.startIndex, offsetBy: 1)]))"
+    case 8:
+      return "#\(String(hexString[self.index(self.startIndex, offsetBy: 2)...]))\(String(hexString[..<self.index(self.startIndex, offsetBy: 2)]))"
+    default:
+      return nil
+    }
   }
 }
