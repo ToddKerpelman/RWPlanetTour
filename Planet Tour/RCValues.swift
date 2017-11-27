@@ -66,22 +66,22 @@ class RCValues {
       ValueKey.experimentGroup.rawValue: "default" as NSObject,
       ValueKey.planetImageScaleFactor.rawValue: 0.33 as NSObject
     ]
-    FIRRemoteConfig.remoteConfig().setDefaults(appDefaults)
+    RemoteConfig.remoteConfig().setDefaults(appDefaults)
   }
 
   func fetchCloudValues() {
     // WARNING: Don't actually do this in production!
     let fetchDuration: TimeInterval = 0
     activateDebugMode()
-    FIRRemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) {
+    RemoteConfig.remoteConfig().fetch(withExpirationDuration: fetchDuration) {
       [weak self] (status, error) in
       
       guard error == nil else {
-        print ("Uh-oh. Got an error fetching remote values \(error)")
+        print ("Uh-oh. Got an error fetching remote values \(error!)")
         return
       }
       
-      FIRRemoteConfig.remoteConfig().activateFetched()
+      RemoteConfig.remoteConfig().activateFetched()
       self?.recordExperimentGroups()
       print ("Retrieved values from the cloud!")
       self?.fetchComplete = true
@@ -90,8 +90,8 @@ class RCValues {
   }
   
   func activateDebugMode() {
-    let debugSettings = FIRRemoteConfigSettings(developerModeEnabled: true)
-    FIRRemoteConfig.remoteConfig().configSettings = debugSettings!
+    let debugSettings = RemoteConfigSettings(developerModeEnabled: true)
+    RemoteConfig.remoteConfig().configSettings = debugSettings!
   }
 
   func recordExperimentGroups() {
@@ -106,15 +106,15 @@ class RCValues {
   }
   
   func bool(forKey key: ValueKey) -> Bool {
-    return FIRRemoteConfig.remoteConfig()[key.rawValue].boolValue
+    return RemoteConfig.remoteConfig()[key.rawValue].boolValue
   }
   
   func string(forKey key: ValueKey) -> String {
-    return FIRRemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
+    return RemoteConfig.remoteConfig()[key.rawValue].stringValue ?? ""
   }
   
   func double(forKey key: ValueKey) -> Double {
-    if let numberValue = FIRRemoteConfig.remoteConfig()[key.rawValue].numberValue {
+    if let numberValue = RemoteConfig.remoteConfig()[key.rawValue].numberValue {
       return numberValue.doubleValue
     } else {
       return 0.0
