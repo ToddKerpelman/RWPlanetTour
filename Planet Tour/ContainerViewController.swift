@@ -35,7 +35,7 @@ class ContainerViewController: UIViewController {
     super.viewDidLoad()
 
     updateBanner()
-    FIRAnalytics.logEvent(withName: "mainPageLoaded", parameters: nil)
+    Analytics.logEvent("mainPageLoaded", parameters: nil)
   }
 
   override func viewWillAppear(_ animated: Bool) {

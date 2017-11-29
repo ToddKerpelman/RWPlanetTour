@@ -78,15 +78,15 @@ class PlanetsCollectionViewController: UICollectionViewController {
 // MARK: - Internal
 extension PlanetsCollectionViewController {
 
-  func runUserSurvey() {
+  @objc func runUserSurvey() {
     let alertView = UIAlertController(title: "User survey",
                                       message: "How do you feel about small, remote, cold rocks in space?",
                                       preferredStyle: .actionSheet)
     let fanOfPluto = UIAlertAction(title: "They're planets, too!", style: .default) { (action) in
-      FIRAnalytics.setUserPropertyString("true", forName: "likesSmallRocks")
+      Analytics.setUserProperty("true", forName: "likesSmallRocks")
     }
     let notAFan = UIAlertAction(title: "Not worth my time", style: .default) { (action) in
-      FIRAnalytics.setUserPropertyString("false", forName: "likesSmallRocks")
+      Analytics.setUserProperty("false", forName: "likesSmallRocks")
     }
     alertView.addAction(fanOfPluto)
     alertView.addAction(notAFan)

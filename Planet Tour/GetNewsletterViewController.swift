@@ -38,7 +38,7 @@ class GetNewsletterViewController: UIViewController {
     updateText()
     updateSubmitButton()
     thankYouLabel.isHidden = true
-    FIRAnalytics.logEvent(withName: "newsletterPageLoaded", parameters: nil)
+    Analytics.logEvent("newsletterPageLoaded", parameters: nil)
   }
 }
 
@@ -50,7 +50,7 @@ extension GetNewsletterViewController {
     submitButton.isHidden = true
     thankYouLabel.isHidden = false
     emailTextField.isEnabled = false
-    FIRAnalytics.logEvent(withName: "newsletterButtonPressed", parameters: nil)
+    Analytics.logEvent("newsletterButtonPressed", parameters: nil)
   }
 }
 
