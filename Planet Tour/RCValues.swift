@@ -82,7 +82,6 @@ class RCValues {
       }
       
       RemoteConfig.remoteConfig().activateFetched()
-      self?.recordExperimentGroups()
       print ("Retrieved values from the cloud!")
       self?.fetchComplete = true
       self?.loadingDoneCallback?()
@@ -92,11 +91,6 @@ class RCValues {
   func activateDebugMode() {
     let debugSettings = RemoteConfigSettings(developerModeEnabled: true)
     RemoteConfig.remoteConfig().configSettings = debugSettings!
-  }
-
-  func recordExperimentGroups() {
-    let myExperimentGroup = FIRRemoteConfig.remoteConfig()["experimentGroup"].stringValue ?? "none"
-    FIRAnalytics.setUserPropertyString(myExperimentGroup, forName: "experimentGroup")
   }
 
   func color(forKey key: ValueKey) -> UIColor {
