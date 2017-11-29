@@ -52,6 +52,11 @@ class PlanetsCollectionViewController: UICollectionViewController {
     super.viewDidAppear(animated)
 
     removeWaitingViewController()
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+
     addFancyBackground()
     addMiniMap()
     if (!UserDefaults.standard.bool(forKey: takenSurveyKey)) {
