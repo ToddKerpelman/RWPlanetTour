@@ -61,7 +61,4 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
-FireTomato/Pods
 .DS_Store
-FireTomato/.idea
-FireTomato/Podfile.bak
