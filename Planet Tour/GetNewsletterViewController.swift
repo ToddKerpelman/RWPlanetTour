@@ -50,7 +50,7 @@ extension GetNewsletterViewController {
     submitButton.isHidden = true
     thankYouLabel.isHidden = false
     emailTextField.isEnabled = false
-    Analytics.logEvent("newsletterButtonPressed", parameters: nil)
+    Analytics.logEvent("newsletterSubscribed", parameters: nil)
   }
 }
 

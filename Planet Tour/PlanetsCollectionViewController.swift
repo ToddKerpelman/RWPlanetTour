@@ -54,6 +54,9 @@ class PlanetsCollectionViewController: UICollectionViewController {
     super.viewDidAppear(animated)
 
     removeWaitingViewController()
+    if (!UserDefaults.standard.bool(forKey: takenSurveyKey)) {
+      runUserSurvey()
+    }
   }
 
   override func viewDidLayoutSubviews() {
@@ -61,9 +64,6 @@ class PlanetsCollectionViewController: UICollectionViewController {
 
     addFancyBackground()
     addMiniMap()
-    if (!UserDefaults.standard.bool(forKey: takenSurveyKey)) {
-      runUserSurvey()
-    }
   }
 
 
