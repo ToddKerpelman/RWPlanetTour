@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
+    let idToken = InstanceID.instanceID().token()
+    print ("Your instance ID token is \(idToken ?? "n/a")")
     let _ = RCValues.sharedInstance
     return true
   }
